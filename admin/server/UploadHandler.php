@@ -41,13 +41,22 @@ class UploadHandler
     protected $image_objects = array();
 
     function __construct($options = null, $initialize = true, $error_messages = null) {
+        
+        if($_SERVER['SERVER_NAME'] == 'localhost'){
+            $upload_url = 'http://localhost/demosLifeWeb/ogapora/images/carousel/';
+            $upload_url_thumb = 'http://localhost/demosLifeWeb/ogapora/images/carousel/thumbnail/';
+        }else{
+            $upload_url = $_SERVER['SERVER_NAME'].'/images/carousel/';
+            $upload_url_thumb = $_SERVER['SERVER_NAME'].'/images/carousel/thumbnail/';
+        }
+        
         $this->response = array();
         $this->options = array(
             'script_url' => $this->get_full_url().'/'.basename($this->get_server_var('SCRIPT_NAME')),
             //'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/files/',
             'upload_dir' => '../../images/carousel/',
             //'upload_url' => $this->get_full_url().'/files/',
-            'upload_url' => 'http://localhost/demosLifeWeb/ogapora/images/carousel/',
+            'upload_url' => $upload_url,
             'user_dirs' => false,
             'mkdir_mode' => 0755,
             'param_name' => 'files',
@@ -153,7 +162,7 @@ class UploadHandler
                     //'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/thumb/',
                     'upload_dir' => '../../images/carousel/thumbnail/',
                     //'upload_url' => $this->get_full_url().'/thumb/',
-                    'upload_url' => 'http://localhost/demosLifeWeb/ogapora/images/carousel/thumbnail/',
+                    'upload_url' => $upload_url_thumb,
                     // Uncomment the following to force the max
                     // dimensions and e.g. create square thumbnails:
                     'crop' => true,
