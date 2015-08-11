@@ -1,0 +1,133 @@
+/* COLOR 14
+================================================== */
+a { color: #444444; }
+::selection { background: #444444; }
+::-moz-selection {
+ background: #444444;
+}
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus { border-color: #444444; }
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus { background-color: #444444 !important; }
+ @media (min-width: 768px) {
+.dropdown-menu { border-top: 4px solid #444444; }
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus { background-color: #444444; }
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus { background-color: #444444; }
+.yamm .yamm-content .icon-arrow-list li a:hover { color: #999999; }
+.navbar-toggle {
+	background-color: #444444;
+	border: 1px solid #444444;
+}
+.navbar-default .navbar-toggle { border-color: #444444; }
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus { background-color: #444444; }
+ @media (max-width: 767px) {
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus { color: #444444; }
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus { color: #444444; }
+}
+@media (max-width: 767px) {
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus { color: #444444; }
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus { color: #444444; }
+}
+.input-group .btn-default { background-color: #444444; }
+.footer-list li i { color: #444444; }
+.footer-tooltip { background: #444444; }
+.footer-tooltip .footer-tooltip-arrow { border-right: 10px solid #444444; }
+.blog-info { background: #444444; }
+.blog-title > i { background: #444444; }
+.sidebar-list li i { color: #444444; }
+.sidebar-tag li:hover { background: #444444; }
+.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
+	background-color: #444444;
+	border-color: #444444;
+}
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+	background-color: #444444;
+	border-color: #444444;
+}
+.icon-arrow-list li i { color: #444444; }
+blockquote { border-left: 5px solid #444444; }
+.highlight-theme { background: #444444; }
+.dropcap-theme { background: #444444; }
+.iconbox1-icon {
+	background: #444444;
+	background: rgba(68,68,68,0.7);
+}
+.iconbox1-icon i { border: 1px solid #444444; }
+.iconbox1:hover .iconbox1-icon i { color: #444444; }
+.iconbox1:hover .effect-3:after,
+.iconbox2:hover .effect-3:after { background: rgba(68,68,68,0.7); }
+.iconbox2-icon {
+	background: #444444;
+	background: rgba(68,68,68,0.7);
+}
+.iconbox2-icon i { border: 1px solid #444444; }
+.iconbox2:hover .iconbox2-icon i { color: #444444; }
+.process-1 { background: #444444; }
+.process-1 .triangle-right { border-left: 15px solid #444444; }
+.process-2 { background: #444444; }
+.process-2 .triangle-right { border-left: 15px solid #444444; }
+.process-content h4 i { color: #444444; }
+.photobox2:hover .photobox2-content { border: 5px solid #444444; }
+.photobox3:hover .photobox3-content { border: 5px solid #444444; }
+.social-icons li a i:hover { background: #444444; }
+.social-color li a i:hover { background: #444444; }
+.panel-heading a { background-color: #444444; }
+.toggle-container h4.active { background-color: #444444; }
+.tab.active { background: #444444; }
+#tab-side-container ul li.selected-tab { background: #444444; }
+.progress-color { background-color: #444444; }
+.team:hover { border: 5px solid #444444; }
+.team-info { background: #444444; }
+.parallax-overlay {
+	background: #444444;
+	background: rgba(68,68,68,0.7);
+}
+.titleline { border-top: 1px solid #444444; }
+.titleline:after { border-top: 5px solid #444444; }
+.titleline-center { border-top:1px solid #444444; }
+.titleline-center:after { border-top: 5px solid #444444; }
+.titleline-footer { border-top:1px solid #444444; }
+.titleline-footer:after { border-top: 5px solid #444444; }
+.back-to-top:hover, .back-to-top:focus { background-color: #444444; }
+.flickr-thumbs li { border: 3px solid #444444; }
+.da-thumbs div {
+	background: #444444;
+	background: rgba(68,68,68,0.7);
+}
+.da-thumbs div i:hover { color: #444444; }
+.button:hover, .button:active, .button.is-checked {
+	color: #444444;
+	border: 1px solid #444444;
+}
+.cmxform label span { color: #444444; }
+.tp-caption.theme-big {
+	background-color: #444444;
+	background-color: rgba(68,68,68,0.7);
+}
+.tp-caption.theme-normal {
+	background-color: #444444;
+	background-color: rgba(68,68,68,0.7);
+}
+.tp-caption.theme-small {
+	background-color: #444444;
+	background-color: rgba(68,68,68,0.7);
+}
+a:hover, a:focus { color: #111111; }
+#copyright { background: #111111; }
+.page-title { background: #111111 url("../images/page-title14.jpg") no-repeat center bottom; }
+.intro { background: #111111 url("../images/background14.jpg") no-repeat center 70%; }
+#topbar { background: #111111 url("../images/background14.jpg") no-repeat center 50%; }
+#footer { background: #111111 url("../images/background14.jpg") no-repeat center top; }
+
+.popular .plan { background: #111111 url("../images/slash-bg.png") repeat; }
+.popular .price { background: #444444 url("../images/slash-bg.png") repeat; }
+.btn-theme {
+	background-color: #444444;
+	-webkit-box-shadow: 0px 2px 0px 0px #111111;
+	-moz-box-shadow: 0px 2px 0px 0px #111111;
+	-o-box-shadow: 0px 2px 0px 0px #111111;
+	box-shadow: 0px 2px 0px 0px #111111;
+}
+
+.plan { background: #666666 url("../images/slash-bg.png") repeat; }
+.price { background: #999999 url("../images/slash-bg.png") repeat; }
+.yamm .yamm-content .icon-arrow-list li i { color: #ffffff; }

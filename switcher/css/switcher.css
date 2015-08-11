@@ -1,0 +1,74 @@
+/************************************************************************************
+STYLESHEET SWITCHER - DEMO ONLY -
+*************************************************************************************/
+.slide-out-div {
+	width: 200px;
+	height: 350px;
+	padding: 10px;
+	position: relative;
+	z-index: 20000000;
+	font-size: 11px;
+	background: #fcfcfc;
+	border: 1px solid #dddddd;
+	-webkit-border-radius: 0 5px 5px 0;
+	-moz-border-radius: 0 5px 5px 0;
+	border-radius: 0 5px 5px 0;
+}
+.slide-out-div ul { padding: 0; }
+.slide-out-div h4 {
+	margin: 10px 5px 10px;
+	color: #555555;
+	font-weight: 300;
+}
+.slide-out-div h5 {
+	margin: 10px 5px 1px;
+	color: #555555;
+	font-weight: 300;
+}
+.slide-out-div ul li {
+	float: left;
+	display: block;
+	list-style-type: none;
+	text-align: center;
+	margin: 5px;
+	cursor: pointer;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.slide-out-div ul li a {
+	color: #555555;
+	font-weight: 300;
+	padding: 10px;  /* box width height */
+	display: block;
+	text-decoration: none;
+}
+.select-area { margin: 0 5px; }
+.color1 { background: #528fcc; }
+.color2 { background: #5252cc; }
+.color3 { background: #8f52cc; }
+.color4 { background: #cc52cc; }
+.color5 { background: #cc528f; }
+.color6 { background: #cc5252; }
+.color7 { background: #cc8f52; }
+.color8 { background: #cccc52; }
+.color9 { background: #8fcc52; }
+.color10 { background: #52cc52; }
+.color11 { background: #52cc8f; }
+.color12 { background: #52cccc; }
+.color13 { background: #999999; }
+.color14 { background: #555555; }
+.box1 { background: url("../images/box1.png") repeat; }
+.box2 { background: url("../images/box2.png") repeat; }
+.box3 { background: url("../images/box3.png") repeat; }
+.box4 { background: url("../images/box4.png") repeat; }
+.box5 { background: url("../images/box5.png") repeat; }
+.box6 { background: url("../images/box6.png") repeat; }
+.box7 { background: url("../images/box7.png") repeat; }
+.box8 { background: url("../images/box8.png") repeat; }
+.box9 { background: url("../images/box9.png") repeat; }
+.box10 { background: url("../images/box10.png") repeat; }
+.reset {
+	background: #ffffff;
+	color: #555555;
+	font-weight: 300;
+	font-size: 15px;
+}

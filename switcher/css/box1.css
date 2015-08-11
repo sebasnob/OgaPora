@@ -1,0 +1,17 @@
+/* BOXED LAYOUT
+================================================== */
+body { background: #eeeeee url("../images/box1.png") repeat; }
+.boxed-layout {
+	max-width: 1200px!important;
+	margin: auto;
+	background: #ffffff;
+}
+#header { max-width: 1200px!important; }
+.tp-banner-container, .tp-banner, .tp-banner-fullscreen-container {
+	max-width: 1200px!important;
+	margin: auto!important;
+}
+
+
+
+
