@@ -203,63 +203,22 @@
     <!-- end .container -->
     
     <div class="owl-image owl-carousel owl-theme da-thumbs-wrap wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.7s">
-      <div class="item">
-        <div class="da-thumbs"><img src="images/carousel/acueducto-werk-thumb.jpg" alt="" />
-          <div><span><a class="nivo-lightbox" href="images/carousel/acueducto-werk.jpg" data-lightbox-gallery="gallery1"><i class="fa fa-search effect-3"></i></a></span></div>
+        <?php
+        $dir = opendir("images/carousel/");
+        while ($archivo = readdir($dir)){
+                if($archivo != "." && $archivo != ".." && $archivo != "thumbnail"){
+        ?>
+        <div class="item">
+            <div class="da-thumbs"><img src="images/carousel/thumbnail/<?=$archivo?>" alt="" />
+              <div><span><a class="nivo-lightbox" href="images/carousel/<?=$archivo?>" data-lightbox-gallery="gallery1"><i class="fa fa-search effect-3"></i></a></span></div>
+            </div>
         </div>
-        <!-- end .da-thumbs --> 
-      </div>
-      <!-- end .item -->
+        <?php
+                }
+        }
+        ?>
       
-      <div class="item">
-        <div class="da-thumbs"> <img src="images/carousel/F.-DE-ENFERMIERIA-thumb.jpg" alt="" />
-          <div><span><a class="nivo-lightbox" href="images/carousel/F.-DE-ENFERMIERIA.jpg" data-lightbox-gallery="gallery1"><i class="fa fa-search effect-3"></i></a></span></div>
-        </div>
-        <!-- end .da-thumbs --> 
-      </div>
-      <!-- end .item -->
-      
-      <div class="item">
-        <div class="da-thumbs"> <img src="images/carousel/F.-DE-ING.-SIBERIA-thumb.jpg" alt="" />
-          <div> <span><a class="nivo-lightbox" href="images/carousel/F.-DE-ING.-SIBERIA.jpg" data-lightbox-gallery="gallery1"><i class="fa fa-search effect-3"></i></a></span> </div>
-        </div>
-        <!-- end .da-thumbs --> 
-      </div>
-      <!-- end .item -->
-      
-      <div class="item">
-        <div class="da-thumbs"> <img src="images/carousel/FA-DE-ENFER-thumb.jpg" alt="" />
-          <div> <span><a class="nivo-lightbox" href="images/carousel/FA-DE-ENFER.jpg" data-lightbox-gallery="gallery1"><i class="fa fa-search effect-3"></i></a></span></div>
-        </div>
-        <!-- end .da-thumbs --> 
-      </div>
-      <!-- end .item -->
-      
-      <div class="item">
-        <div class="da-thumbs"> <img src="images/carousel/ifir-2-thumb.jpg" alt="" />
-          <div> <span><a class="nivo-lightbox" href="images/carousel/ifir-2.jpg" data-lightbox-gallery="gallery1"><i class="fa fa-search effect-3"></i></a></span></div>
-        </div>
-        <!-- end .da-thumbs --> 
-      </div>
-      <!-- end .item -->
-      
-      <div class="item">
-        <div class="da-thumbs"> <img src="images/carousel/ifir-3-thumb.jpg" alt="" />
-          <div> <span><a class="nivo-lightbox" href="images/carousel/ifir-3.jpg" data-lightbox-gallery="gallery1"><i class="fa fa-search effect-3"></i></a></span></div>
-        </div>
-        <!-- end .da-thumbs --> 
-      </div>
-      <!-- end .item -->
-      
-      <div class="item">
-        <div class="da-thumbs"> <img src="images/carousel/ITURASPE-thumb.jpg" alt="" />
-          <div> <span><a class="nivo-lightbox" href="images/carousel/ITURASPE.jpg" data-lightbox-gallery="gallery1"><i class="fa fa-search effect-3"></i></a></span></div>
-        </div>
-        <!-- end .da-thumbs --> 
-      </div>
-      <!-- end .item -->
-
-	  </div>
+    </div>
     <!-- end #owl-portfolio --> 
   </div>
   <!-- end .slash-wrapper -->
