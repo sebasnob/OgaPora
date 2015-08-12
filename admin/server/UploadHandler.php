@@ -47,7 +47,7 @@ class UploadHandler
             $upload_url_thumb = 'http://localhost/demosLifeWeb/ogapora/images/carousel/thumbnail/';
         }else{
             $upload_url = $_SERVER['SERVER_NAME'].'/images/carousel/';
-            $upload_url_thumb = $_SERVER['SERVER_NAME'].'/images/carousel/thumbnail/';
+            $upload_url_thumb = 'http://m2000364.ferozo.com/ejemplos/ogapora/images/carousel/thumbnail/';
         }
         
         $this->response = array();
