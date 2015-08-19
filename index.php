@@ -12,6 +12,22 @@
 ================================================== -->
 <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,900,800,600,500,700,300,200' rel='stylesheet' type='text/css'>
 
+<style>
+    
+#splash div {
+    -moz-border-radius:5px;-webkit-border-radius:5px;background-color:rgba(255,255,255,0.7);border-radius:5px;bottom:0;margin:20px;padding:15px;position:absolute;z-index:10;
+}
+#splash h2 {
+    font-size:14px;margin-bottom:5px;
+}
+#splash strong {
+    color:#000;font-size:11px;text-shadow:none;
+}
+#splash p {
+    color:#000;font-size:11px;line-height:14px;margin:0!important;text-shadow:none;
+}
+    
+</style>
 <!-- CSS
 ================================================== -->
 <link rel="stylesheet" href="css/bootstrap.css">
@@ -20,7 +36,6 @@
 <link rel="stylesheet" href="css/plugins.css" />
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/scrolling-nav.css" />
-
 
 <!-- IE
 ================================================== -->
@@ -52,6 +67,7 @@
 <link rel="alternate stylesheet" media="screen" title="footer1" href="switcher/css/footer1.css" />
 <!-- End Style Switcher
 ================================================== -->
+
 </head>
 
 <body>
@@ -199,10 +215,72 @@
         <!-- end .col-md-12 --> 
       </div>
       <!-- end .row --> 
-    </div>
+    
     <!-- end .container -->
     
-    <div class="owl-image owl-carousel owl-theme da-thumbs-wrap wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.7s">
+    <!--nueva galeria-->
+    <div class="col-md-12">
+    <ul id="splash" style="margin-left: 10%">
+        <li>
+            <img src="diner.jpg" alt="" class="img-responsive"/>
+            <div>
+                <strong>Old School Diner</strong>
+                <p class="splash-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor lacus sollicitudin ligula sagittis a ultricies nulla ultricies. Ut odio nisi, posuere sed blandit at, bibendum non dolor.</p>
+            </div>
+        </li>
+        <li>
+            <img src="pool.jpg" alt="" class="img-responsive"/>
+            <div>
+                <strong>A Day at the Pool</strong>
+                <p class="splash-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in condimentum sem. Aenean faucibus dignissim auctor. In ut libero vitae augue laoreet iaculis at a tellus.</p>
+            </div>
+        </li>
+        <li>
+            <img src="gas.jpg" alt="" class="img-responsive"/>
+            <div>
+                <strong>Fill it Up!</strong>
+                <p class="splash-text">Duis viverra velit orci. Sed vestibulum mi nec est imperdiet sed ullamcorper augue molestie. Donec ultrices facilisis erat at porttitor.</p>
+            </div>
+        </li>
+        <li>
+            <img src="car.jpg" alt="" class="img-responsive"/>
+            <div>
+                <strong>Going for a Drive</strong>
+                <p class="splash-text">Phasellus sed lectus nisl, eget cursus eros. Suspendisse posuere orci eu lorem luctus et porta nunc posuere. Cras sed lectus vitae leo accumsan adipiscing.</p>
+            </div>
+        </li>
+        <li>
+            <img src="diner.jpg" alt="" class="img-responsive"/>
+            <div>
+                <strong>Old School Diner</strong>
+                <p class="splash-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor lacus sollicitudin ligula sagittis a ultricies nulla ultricies. Ut odio nisi, posuere sed blandit at, bibendum non dolor.</p>
+            </div>
+        </li>
+        <li>
+            <img src="pool.jpg" alt="" class="img-responsive"/>
+            <div>
+                <strong>A Day at the Pool</strong>
+                <p class="splash-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in condimentum sem. Aenean faucibus dignissim auctor. In ut libero vitae augue laoreet iaculis at a tellus.</p>
+            </div>
+        </li>
+        <li>
+            <img src="gas.jpg" alt="" class="img-responsive"/>
+            <div>
+                <strong>Fill it Up!</strong>
+                <p class="splash-text">Duis viverra velit orci. Sed vestibulum mi nec est imperdiet sed ullamcorper augue molestie. Donec ultrices facilisis erat at porttitor.</p>
+            </div>
+        </li>
+        <li>
+            <img src="car.jpg" alt="" class="img-responsive"/>
+            <div>
+                <strong>Going for a Drive</strong>
+                <p class="splash-text">Phasellus sed lectus nisl, eget cursus eros. Suspendisse posuere orci eu lorem luctus et porta nunc posuere. Cras sed lectus vitae leo accumsan adipiscing.</p>
+            </div>
+        </li>
+    </ul>
+    </div>
+    </div>
+<!--    <div class="owl-image owl-carousel owl-theme da-thumbs-wrap wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.7s">
         <?php
         $dir = opendir("images/carousel/");
         while ($archivo = readdir($dir)){
@@ -218,7 +296,7 @@
         }
         ?>
       
-    </div>
+    </div>-->
     <!-- end #owl-portfolio --> 
   </div>
   <!-- end .slash-wrapper -->
@@ -230,30 +308,27 @@
 	<br/>
 	<br/>
     <div class="row wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
-      <div class="col-md-12 text-center">
-        <h3>Obras en <strong>Proceso</strong></h3>
-        <div class="titleline-center"></div>
-        <!-- end .titleline-center -->
-        <p class="lead">En estas obras nos encontramos trabajando.</p>
-      </div>
-      <!-- end .col-md-12 --> 
-	  
-    <div class="row">
-      <div class="col-md-6"> <img src="images/demo-escuela.jpg" class="img-responsive frame" alt="" /> </div>
-      <!-- end .col-md-6 -->
-      
-      <div class="col-md-6">
-        <h3>Escuela <strong>Zona Cero</strong></h3>
-        <!-- end .titleline -->
-        <p><span class="dropcap-theme">L</span>La nueva Escuela de Educación Primaria de la Zona Cero de Rosario contará con siete aulas, un taller multipropósito, una biblioteca, una sala multimedia y un salón de usos múltiples (SUM); además de los espacios propios para áreas de gobierno, baños y portería. La superficie del terreno es de 6.940 m2 donde se edificarán unos 1740 m2.</p>
-        <p>El edificio se ubicará en Oncativo entre Paunero y N. Laguna (Barrio Zona Cero), se construirá según el sistema proyectual tipológico. El mismo, responde al nuevo concepto de edificios escolares proyectados por el gobierno provincial.</p>
-		<p>El inmueble ofrecerá generosos espacios, donde el color blanco será protagonista y la luz natural entrará abundantemente por los amplios ventanales. Todas estas características, sumadas a un amplio ingreso y a la apertura a la comunidad del SUM y de la biblioteca, vuelven a ésta y todas las escuelas similares, en un sitio de referencia del barrio. Además, cada una de sus aulas –planteada como un módulo de 7×7 metros– se integran a un patio exterior, que hace de extensión del ámbito escolar y que busca una mayor interrelación entre alumnos y docentes.</p>
-      </div>
-      <!-- end .col-md-6 --> 
-      
+        <div class="col-md-12 text-center">
+            <h3>Obras en <strong>Proceso</strong></h3>
+            <div class="titleline-center"></div>
+            <p class="lead">En estas obras nos encontramos trabajando.</p>
+        </div>
+      	  
+        <div class="row">
+            <div class="col-md-6"> 
+                <img src="images/demo-escuela.jpg" class="img-responsive frame" alt="" /> 
+            </div>
+            <div class="col-md-6">
+                <h3>Escuela <strong>Zona Cero</strong></h3>
+                <p><span class="dropcap-theme">L</span>
+                    La nueva Escuela de Educación Primaria de la Zona Cero de Rosario contará con siete aulas, un taller multipropósito, una biblioteca, una sala multimedia y un salón de usos múltiples (SUM); además de los espacios propios para áreas de gobierno, baños y portería. La superficie del terreno es de 6.940 m2 donde se edificarán unos 1740 m2.
+                </p>
+                <p>El edificio se ubicará en Oncativo entre Paunero y N. Laguna (Barrio Zona Cero), se construirá según el sistema proyectual tipológico. El mismo, responde al nuevo concepto de edificios escolares proyectados por el gobierno provincial.</p>
+                <p>El inmueble ofrecerá generosos espacios, donde el color blanco será protagonista y la luz natural entrará abundantemente por los amplios ventanales. Todas estas características, sumadas a un amplio ingreso y a la apertura a la comunidad del SUM y de la biblioteca, vuelven a ésta y todas las escuelas similares, en un sitio de referencia del barrio. Además, cada una de sus aulas –planteada como un módulo de 7×7 metros– se integran a un patio exterior, que hace de extensión del ámbito escolar y que busca una mayor interrelación entre alumnos y docentes.</p>
+            </div>
+        </div>
+    
     </div>
-    <!-- end .row --> 
-  </div>
   <!-- end .container -->
   <div class="mb-100"></div>
   <!-- end .mb-100 -->
@@ -363,5 +438,35 @@
 <script src="js/custom.js"></script> 
 <script src="js/scrolling-nav.js"></script>
 <script src="js/jquery.easing.min.js"></script>
+
+
+
+<script src="jquery.zaccordion/js/jquery.zaccordion.min.js"></script>
+<script>
+
+$(document).ready(function() {
+	$("#splash").zAccordion({
+		timeout: 4500,
+		speed: 500,
+		slideClass: 'slide',
+		animationStart: function () {
+			$('#splash').find('li.slide-previous div').fadeOut();
+		},
+		animationComplete: function () {
+			$('#splash').find('li.slide-open div').fadeIn();
+		},
+		buildComplete: function () {
+			$('#splash').find('li.slide-closed div').css('display', 'none');
+			$('#splash').find('li.slide-open div').fadeIn();
+		},
+		startingSlide: 1,
+		slideWidth: 600,
+		width: 900,
+		height: 310
+	});
+});
+
+</script>
+
 </body>
 </html>
