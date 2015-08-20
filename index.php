@@ -68,6 +68,13 @@
 <!-- End Style Switcher
 ================================================== -->
 
+<?php 
+
+$imgGaleria1 = getGalery($mysqli, '1');
+$imgGaleria2 = getGalery($mysqli, '2');
+
+?>
+
 </head>
 
 <body>
@@ -221,82 +228,18 @@
     <!--nueva galeria-->
     <div class="col-md-12">
     <ul id="splash" style="margin-left: 10%">
+        <?php foreach ($imgGaleria1 as $img){?>
         <li>
-            <img src="diner.jpg" alt="" class="img-responsive"/>
+            <img src="<?php echo $img['url_img']?>" alt="" class="img-responsive"/>
             <div>
-                <strong>Old School Diner</strong>
-                <p class="splash-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor lacus sollicitudin ligula sagittis a ultricies nulla ultricies. Ut odio nisi, posuere sed blandit at, bibendum non dolor.</p>
+                <strong><?php echo $img['titulo']?></strong>
+                <p class="splash-text"><?php echo $img['descripcion']?></p>
             </div>
         </li>
-        <li>
-            <img src="pool.jpg" alt="" class="img-responsive"/>
-            <div>
-                <strong>A Day at the Pool</strong>
-                <p class="splash-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in condimentum sem. Aenean faucibus dignissim auctor. In ut libero vitae augue laoreet iaculis at a tellus.</p>
-            </div>
-        </li>
-        <li>
-            <img src="gas.jpg" alt="" class="img-responsive"/>
-            <div>
-                <strong>Fill it Up!</strong>
-                <p class="splash-text">Duis viverra velit orci. Sed vestibulum mi nec est imperdiet sed ullamcorper augue molestie. Donec ultrices facilisis erat at porttitor.</p>
-            </div>
-        </li>
-        <li>
-            <img src="car.jpg" alt="" class="img-responsive"/>
-            <div>
-                <strong>Going for a Drive</strong>
-                <p class="splash-text">Phasellus sed lectus nisl, eget cursus eros. Suspendisse posuere orci eu lorem luctus et porta nunc posuere. Cras sed lectus vitae leo accumsan adipiscing.</p>
-            </div>
-        </li>
-        <li>
-            <img src="diner.jpg" alt="" class="img-responsive"/>
-            <div>
-                <strong>Old School Diner</strong>
-                <p class="splash-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor lacus sollicitudin ligula sagittis a ultricies nulla ultricies. Ut odio nisi, posuere sed blandit at, bibendum non dolor.</p>
-            </div>
-        </li>
-        <li>
-            <img src="pool.jpg" alt="" class="img-responsive"/>
-            <div>
-                <strong>A Day at the Pool</strong>
-                <p class="splash-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in condimentum sem. Aenean faucibus dignissim auctor. In ut libero vitae augue laoreet iaculis at a tellus.</p>
-            </div>
-        </li>
-        <li>
-            <img src="gas.jpg" alt="" class="img-responsive"/>
-            <div>
-                <strong>Fill it Up!</strong>
-                <p class="splash-text">Duis viverra velit orci. Sed vestibulum mi nec est imperdiet sed ullamcorper augue molestie. Donec ultrices facilisis erat at porttitor.</p>
-            </div>
-        </li>
-        <li>
-            <img src="car.jpg" alt="" class="img-responsive"/>
-            <div>
-                <strong>Going for a Drive</strong>
-                <p class="splash-text">Phasellus sed lectus nisl, eget cursus eros. Suspendisse posuere orci eu lorem luctus et porta nunc posuere. Cras sed lectus vitae leo accumsan adipiscing.</p>
-            </div>
-        </li>
+        <?php } ?>
     </ul>
     </div>
     </div>
-<!--    <div class="owl-image owl-carousel owl-theme da-thumbs-wrap wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.7s">
-        <?php
-        $dir = opendir("images/carousel/");
-        while ($archivo = readdir($dir)){
-                if($archivo != "." && $archivo != ".." && $archivo != "thumbnail"){
-        ?>
-        <div class="item">
-            <div class="da-thumbs"><img src="images/carousel/thumbnail/<?=$archivo?>" alt="" />
-              <div><span><a class="nivo-lightbox" href="images/carousel/<?=$archivo?>" data-lightbox-gallery="gallery1"><i class="fa fa-search effect-3"></i></a></span></div>
-            </div>
-        </div>
-        <?php
-                }
-        }
-        ?>
-      
-    </div>-->
     <!-- end #owl-portfolio --> 
   </div>
   <!-- end .slash-wrapper -->
@@ -313,24 +256,41 @@
             <div class="titleline-center"></div>
             <p class="lead">En estas obras nos encontramos trabajando.</p>
         </div>
-      	  
-        <div class="row">
-            <div class="col-md-6"> 
-                <img src="images/demo-escuela.jpg" class="img-responsive frame" alt="" /> 
-            </div>
-            <div class="col-md-6">
-                <h3>Escuela <strong>Zona Cero</strong></h3>
-                <p><span class="dropcap-theme">L</span>
-                    La nueva Escuela de Educación Primaria de la Zona Cero de Rosario contará con siete aulas, un taller multipropósito, una biblioteca, una sala multimedia y un salón de usos múltiples (SUM); además de los espacios propios para áreas de gobierno, baños y portería. La superficie del terreno es de 6.940 m2 donde se edificarán unos 1740 m2.
-                </p>
-                <p>El edificio se ubicará en Oncativo entre Paunero y N. Laguna (Barrio Zona Cero), se construirá según el sistema proyectual tipológico. El mismo, responde al nuevo concepto de edificios escolares proyectados por el gobierno provincial.</p>
-                <p>El inmueble ofrecerá generosos espacios, donde el color blanco será protagonista y la luz natural entrará abundantemente por los amplios ventanales. Todas estas características, sumadas a un amplio ingreso y a la apertura a la comunidad del SUM y de la biblioteca, vuelven a ésta y todas las escuelas similares, en un sitio de referencia del barrio. Además, cada una de sus aulas –planteada como un módulo de 7×7 metros– se integran a un patio exterior, que hace de extensión del ámbito escolar y que busca una mayor interrelación entre alumnos y docentes.</p>
-            </div>
-        </div>
-    
-    </div>
+      	<?php 
+            $i = 0;
+            foreach ($imgGaleria2 as $img2)
+            {
+                if($i%2==0)
+                {?>
+                <div class="row">
+                    <div class="col-md-6"> 
+                        <img src="<?php echo $img2['url_img']?>" class="img-responsive frame" alt="" /> 
+                    </div>
+                    <div class="col-md-6">
+                        <h3><?php echo $img2['titulo']?></h3>
+                        <p>
+                            <span class="dropcap-theme"><?php echo substr($img2['descripcion'],0,1);?></span>
+                            <?php echo $img2['descripcion']?>
+                        </p>
+                    </div>
+                </div>
+                <?php }else{ ?>    
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3><?php echo $img2['titulo']?></h3>
+                        <p>
+                            <span class="dropcap-theme"><?php echo substr($img2['descripcion'],0,1);?></span>
+                            <?php echo $img2['descripcion']?>
+                        </p>
+                    </div>
+                    <div class="col-md-6"> 
+                        <img src="<?php echo $img2['url_img']?>" class="img-responsive frame" alt="" /> 
+                    </div>
+                </div>
+                <?php } ?> 
+            <?php $i++;} ?>    
   <!-- end .container -->
-  <div class="mb-100"></div>
+    <div class="mb-100"></div>
   <!-- end .mb-100 -->
 	  
     </div>
