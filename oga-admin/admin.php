@@ -89,7 +89,7 @@ if(login_check($mysqli) == true)
         <form class="form-inline" enctype="multipart/form-data" method="POST" action="upload.php?id=<?php echo $img['id']?>">
             <div class="form-group">
                 <label>Imagen: </label>
-                <input type="file" accept="file_extension|image" value="<?php echo $img['url_img']?>" class="form-control" name="photo" required autofocus>
+                <input type="file" accept="file_extension|image" value="<?php echo $img['url_img']?>" class="form-control" name="photo">
             </div>
                 <div class="form-group">
                     <label >T&iacute;tulo: </label>
@@ -122,7 +122,7 @@ if(login_check($mysqli) == true)
         <form class="form-inline" enctype="multipart/form-data" method="POST" action="upload.php?id=<?php echo $img['id']?>">
             <div class="form-group">
                 <label>Imagen: </label>
-                <input type="file" accept="file_extension|image" value="<?php echo $img['url_img']?>" class="form-control" name="photo" required autofocus>
+                <input type="file" accept="file_extension|image" value="<?php echo $img['url_img']?>" class="form-control" name="photo">
             </div>
                 <div class="form-group">
                     <label >T&iacute;tulo: </label>

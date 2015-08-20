@@ -1,6 +1,6 @@
 function borrar(form){
     form.action = form.action + "&borrar=true";
-    alert(form.action);
+    form.submit();
 }
 
 function formhash(form, password) {
