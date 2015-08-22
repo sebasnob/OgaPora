@@ -40,6 +40,8 @@ body {
     background-image: url("../images/slider/slider1.jpg");
     background-repeat: no-repeat;
     background-color: rgba(128, 128, 128, 0.4);
+    background-attachment: fixed;
+    background-size: cover;
 }
 </style>
 
