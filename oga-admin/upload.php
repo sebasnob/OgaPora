@@ -1,7 +1,8 @@
 <?php
 include_once 'includes/db_connect.php';
 include_once 'includes/functions.php';
-    
+include_once 'includes/resizeImage.php';
+
 sec_session_start();
 
 $resultado = true;
@@ -12,6 +13,23 @@ if(login_check($mysqli) == true)
     {
         if(isset($_GET['borrar']))
         {
+            $stmt = $mysqli->prepare("SELECT img_galerias.url_img FROM img_galerias WHERE img_galerias.id = ?");
+            $stmt->bind_param('s', $_GET['id']);
+            $stmt->execute();
+            
+            /* ligar variables de resultado */
+            $stmt->bind_result($url_img);
+
+            /* obtener valor */
+            $stmt->fetch();
+            $stmt->close();
+            //die(file_exists($url_img));
+            if(file_exists("../".$url_img))
+            {
+                unlink("../".$url_img);
+                unlink("../uploads/thumb/".$url_img);
+            }
+
             $mysqli->query("DELETE FROM img_galerias WHERE img_galerias.id = " . $_GET['id']);
         }
         else
@@ -41,9 +59,25 @@ if(login_check($mysqli) == true)
                     {
                         //move it to where we want it to be
                         $ruta = 'uploads/'.$new_file_name;
-                        $exito = move_uploaded_file($_FILES['photo']['tmp_name'], '../'.$ruta);
+                        //ruta temporal donde se aguarda la imagen antes de ser redimensionada y movida a "uploads"
+                        $ruta_temp = 'uploads/temp/'.$new_file_name;
+                        //ruta de los thumbs
+                        $ruta_thumb = 'uploads/thumb/uploads/'.$new_file_name;
+
+                        move_uploaded_file($_FILES['photo']['tmp_name'], '../'.$ruta_temp);
+
+                        $newImg = new resize('../'.$ruta_temp);
+                        $newImg->resizeImage(800,600);
+                        $exito = $newImg->saveImage('../'.$ruta);
                         if($exito)
                         {
+                            unlink('../'.$ruta_temp);
+                            
+                            //creo el thumb
+                            $newThumb = new resize('../'.$ruta);
+                            $newThumb->resizeImage(150,632,"landscape");
+                            $exito = $newThumb->saveImage('../'.$ruta_thumb);
+                            
                             $stmt = $mysqli->prepare("SELECT img_galerias.url_img FROM img_galerias WHERE img_galerias.id = ?");
                             $stmt->bind_param('s', $_GET['id']);
                             $stmt->execute();
@@ -58,6 +92,7 @@ if(login_check($mysqli) == true)
                             if(file_exists("../".$url_img))
                             {
                                 unlink("../".$url_img);
+                                unlink("../uploads/thumb/".$url_img);
                             }     
 
                             $stmt2 = $mysqli->prepare("UPDATE img_galerias SET url_img = ?, titulo = ?, descripcion = ? , galeria = ? WHERE id = ?");
@@ -124,10 +159,25 @@ if(login_check($mysqli) == true)
                         {
                             //move it to where we want it to be
                             $ruta = 'uploads/'.$new_file_name;
-                            $exito = move_uploaded_file($_FILES['photo']['tmp_name'], '../'.$ruta);
+                            //ruta temporal donde se aguarda la imagen antes de ser redimensionada y movida a "uploads"
+                            $ruta_temp = 'uploads/temp/'.$new_file_name;
+                            //ruta de los thumbs
+                            $ruta_thumb = 'uploads/thumb/uploads/'.$new_file_name;
+                            
+                            move_uploaded_file($_FILES['photo']['tmp_name'], '../'.$ruta_temp);
+                            
+                            $newImg = new resize('../'.$ruta_temp);
+                            $newImg->resizeImage(800,600);
+                            $exito = $newImg->saveImage('../'.$ruta);
                             if($exito)
                             {
-
+                                unlink('../'.$ruta_temp);
+                                
+                                //creo el thumb
+                                $newThumb = new resize('../'.$ruta);
+                                $newThumb->resizeImage(150,632,"landscape");
+                                $exito = $newThumb->saveImage('../'.$ruta_thumb);
+                                
                                 $resutl = $mysqli->query("INSERT INTO img_galerias(titulo, descripcion, url_img, galeria) VALUES ('{$_POST['titulo']}', '{$_POST['desc']}', '{$ruta}', '{$_POST['galeria']}')");
 
                                 if($resutl)

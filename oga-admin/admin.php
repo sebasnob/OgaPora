@@ -90,7 +90,7 @@ if(login_check($mysqli) == true)
         <?php foreach ($imgGaleria1 as $img){?>
         <form class="form-inline" enctype="multipart/form-data" method="POST" action="upload.php?id=<?php echo $img['id']?>">
             <div class="form-group">
-                <label>Imagen: </label>
+                <label><img src="../uploads/thumb/<?=$img['url_img'];?>" /></label>
                 <input type="file" accept="file_extension|image" value="<?php echo $img['url_img']?>" class="form-control" name="photo">
             </div>
                 <div class="form-group">
@@ -123,7 +123,7 @@ if(login_check($mysqli) == true)
         <?php foreach ($imgGaleria2 as $img){?>
         <form class="form-inline" enctype="multipart/form-data" method="POST" action="upload.php?id=<?php echo $img['id']?>">
             <div class="form-group">
-                <label>Imagen: </label>
+                <label><img src="../uploads/thumb/<?=$img['url_img'];?>" /></label>
                 <input type="file" accept="file_extension|image" value="<?php echo $img['url_img']?>" class="form-control" name="photo">
             </div>
                 <div class="form-group">
