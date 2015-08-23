@@ -70,6 +70,8 @@
 
 <?php 
 
+include 'oga-admin/includes/functions.php';
+include 'oga-admin/includes/db_connect.php';
 $imgGaleria1 = getGalery($mysqli, '1');
 $imgGaleria2 = getGalery($mysqli, '2');
 
