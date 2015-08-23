@@ -1,3 +1,7 @@
+<?php
+include_once 'oga-admin/includes/db_connect.php';
+include_once 'oga-admin/includes/functions.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,22 +16,6 @@
 ================================================== -->
 <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,900,800,600,500,700,300,200' rel='stylesheet' type='text/css'>
 
-<style>
-    
-#splash div {
-    -moz-border-radius:5px;-webkit-border-radius:5px;background-color:rgba(255,255,255,0.7);border-radius:5px;bottom:0;margin:20px;padding:15px;position:absolute;z-index:10;
-}
-#splash h2 {
-    font-size:14px;margin-bottom:5px;
-}
-#splash strong {
-    color:#000;font-size:11px;text-shadow:none;
-}
-#splash p {
-    color:#000;font-size:11px;line-height:14px;margin:0!important;text-shadow:none;
-}
-    
-</style>
 <!-- CSS
 ================================================== -->
 <link rel="stylesheet" href="css/bootstrap.css">
@@ -36,6 +24,7 @@
 <link rel="stylesheet" href="css/plugins.css" />
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/scrolling-nav.css" />
+<link rel="stylesheet" href="PgwSlider-master/pgwslider.css" />
 
 <!-- IE
 ================================================== -->
@@ -70,8 +59,6 @@
 
 <?php 
 
-include 'oga-admin/includes/functions.php';
-include 'oga-admin/includes/db_connect.php';
 $imgGaleria1 = getGalery($mysqli, '1');
 $imgGaleria2 = getGalery($mysqli, '2');
 
@@ -228,19 +215,18 @@ $imgGaleria2 = getGalery($mysqli, '2');
     <!-- end .container -->
     
     <!--nueva galeria-->
-    <div class="col-md-12">
-    <ul id="splash" style="margin-left: 10%">
-        <?php foreach ($imgGaleria1 as $img){?>
-        <li>
-            <img src="<?php echo $img['url_img']?>" alt="" class="img-responsive"/>
-            <div>
-                <strong><?php echo $img['titulo']?></strong>
-                <p class="splash-text"><?php echo $img['descripcion']?></p>
-            </div>
-        </li>
-        <?php } ?>
-    </ul>
-    </div>
+        <div>
+            <ul class="pgwSlider">
+                <?php foreach ($imgGaleria1 as $img){?>
+                <li>
+                    <img src="<?php echo $img['url_img']?>" 
+                         alt="<?php echo $img['titulo']?>" 
+                         data-description="<?php echo $img['descripcion']?>"
+                    />
+                </li>
+                <?php } ?>
+            </ul>
+        </div>
     </div>
     <!-- end #owl-portfolio --> 
   </div>
@@ -403,30 +389,36 @@ $imgGaleria2 = getGalery($mysqli, '2');
 
 
 
-<script src="jquery.zaccordion/js/jquery.zaccordion.min.js"></script>
+<!--<script src="jquery.zaccordion/js/jquery.zaccordion.min.js"></script>-->
+<script src="PgwSlider-master/pgwslider.js"></script>
 <script>
 
+
 $(document).ready(function() {
-	$("#splash").zAccordion({
-		timeout: 4500,
-		speed: 500,
-		slideClass: 'slide',
-		animationStart: function () {
-			$('#splash').find('li.slide-previous div').fadeOut();
-		},
-		animationComplete: function () {
-			$('#splash').find('li.slide-open div').fadeIn();
-		},
-		buildComplete: function () {
-			$('#splash').find('li.slide-closed div').css('display', 'none');
-			$('#splash').find('li.slide-open div').fadeIn();
-		},
-		startingSlide: 1,
-		slideWidth: 600,
-		width: 900,
-		height: 310
-	});
+    $('.pgwSlider').pgwSlider();
 });
+
+//$(document).ready(function() {
+//	$("#splash").zAccordion({
+//		timeout: 4500,
+//		speed: 500,
+//		slideClass: 'slide',
+//		animationStart: function () {
+//			$('#splash').find('li.slide-previous div').fadeOut();
+//		},
+//		animationComplete: function () {
+//			$('#splash').find('li.slide-open div').fadeIn();
+//		},
+//		buildComplete: function () {
+//			$('#splash').find('li.slide-closed div').css('display', 'none');
+//			$('#splash').find('li.slide-open div').fadeIn();
+//		},
+//		startingSlide: 1,
+//		slideWidth: 600,
+//		width: 900,
+//		height: 310
+//	});
+//});
 
 </script>
 
