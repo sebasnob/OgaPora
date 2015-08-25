@@ -49,7 +49,7 @@ body {
 
 $imgGaleria1 = getGalery($mysqli, '1');
 $imgGaleria2 = getGalery($mysqli, '2');
-
+$imgGaleria3 = getGalery($mysqli, '3');
 
 ?>
 
@@ -78,6 +78,7 @@ if(login_check($mysqli) == true)
                     <select name="galeria">
                         <option value="1">1</option>
                         <option value="2">2</option>
+                        <option value="3">3</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-success">Agregar</button>
@@ -104,12 +105,14 @@ if(login_check($mysqli) == true)
                 <?php 
                  $sel1 = ($img['galeria'] == '1') ? 'selected' : '';
                  $sel2 = ($img['galeria'] == '2') ? 'selected' : '';
+                 $sel3 = ($img['galeria'] == '3') ? 'selected' : '';
                 ?>
                 <div class="form-group">
                     <label >Galer&iacute;a: </label>
                     <select name="galeria">
                         <option value="1" <?php echo $sel1?>>1</option>
                         <option value="2" <?php echo $sel2?>>2</option>
+                        <option value="3" <?php echo $sel3?>>3</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-success">Editar</button>
@@ -137,17 +140,54 @@ if(login_check($mysqli) == true)
                 <?php 
                  $sel1 = ($img['galeria'] == '1') ? 'selected' : '';
                  $sel2 = ($img['galeria'] == '2') ? 'selected' : '';
+                 $sel3 = ($img['galeria'] == '3') ? 'selected' : '';
                 ?>
                 <div class="form-group">
                     <label >Galer&iacute;a: </label>
                     <select name="galeria">
                         <option value="1" <?php echo $sel1?>>1</option>
                         <option value="2" <?php echo $sel2?>>2</option>
+                        <option value="3" <?php echo $sel3?>>3</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-success">Editar</button>
                 <button type="button" onclick="borrar(this.form)" class="btn btn-danger">Borrar</button>
             </form>
+        <?php }?>
+    </div>
+    
+    <div class="container" style="background-color: white; margin-top: 10%">
+        <h5>Imagenes galeria 3</h5>
+        <?php foreach ($imgGaleria3 as $img){?>
+        <form class="form-inline" enctype="multipart/form-data" method="POST" action="upload.php?id=<?php echo $img['id']?>">
+            <div class="form-group">
+                <label><img src="../uploads/thumb/<?=$img['url_img'];?>" /></label>
+                <input type="file" accept="file_extension|image" value="<?php echo $img['url_img']?>" class="form-control" name="photo">
+            </div>
+            <div class="form-group">
+                <label >T&iacute;tulo: </label>
+                <input type="text" class="form-control" value="<?php echo $img['titulo']?>" name="titulo" id="titulo" required>
+            </div>
+            <div class="form-group">
+                <label >Descripci&oacute;n: </label>
+                <input type="text" maxlength="600" name="desc" value="<?php echo $img['descripcion']?>"  class="form-control" placeholder="600 caracteres máximo" id="desc" style="min-width: 190px" required>
+            </div>
+            <?php 
+             $sel1 = ($img['galeria'] == '1') ? 'selected' : '';
+             $sel2 = ($img['galeria'] == '2') ? 'selected' : '';
+             $sel3 = ($img['galeria'] == '3') ? 'selected' : '';
+            ?>
+            <div class="form-group">
+                <label >Galer&iacute;a: </label>
+                <select name="galeria">
+                    <option value="1" <?php echo $sel1?>>1</option>
+                    <option value="2" <?php echo $sel2?>>2</option>
+                    <option value="3" <?php echo $sel3?>>3</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-success">Editar</button>
+            <button type="button" onclick="borrar(this.form)" class="btn btn-danger">Borrar</button>
+        </form>
         <?php }?>
     </div>
 <?php

@@ -61,6 +61,7 @@ include_once 'oga-admin/includes/functions.php';
 
 $imgGaleria1 = getGalery($mysqli, '1');
 $imgGaleria2 = getGalery($mysqli, '2');
+$imgGaleria3 = getGalery($mysqli, '3');
 
 ?>
 
@@ -101,9 +102,10 @@ $imgGaleria2 = getGalery($mysqli, '2');
           <ul class="nav navbar-nav">
             <li class="active dropdown"><a href="#topbar" class="dropdown-toggle hvr js-activated page-scroll" data-toggle="dropdown">Inicio</a></li>
             <li class="dropdown"><a href="#quienes" class="dropdown-toggle hvr js-activated page-scroll" data-toggle="dropdown">Quienes Somos</a></li>
-            <li class="dropdown yamm-fw"><a href="#proyectos" class="dropdown-toggle hvr js-activated page-scroll" data-toggle="dropdown">Obras Finalizadas</a></li>
             <li class="dropdown"><a href="#obras" class="dropdown-toggle hvr js-activated page-scroll" data-toggle="dropdown">Obras en Proceso</a></li>
-			<li class="dropdown"><a href="#clientes" class="dropdown-toggle hvr js-activated page-scroll" data-toggle="dropdown">Clientes</a></li>
+            <li class="dropdown yamm-fw"><a href="#proyectos" class="dropdown-toggle hvr js-activated page-scroll" data-toggle="dropdown">Obras Finalizadas</a></li>
+            <li class="dropdown"><a href="#ventas" class="dropdown-toggle hvr js-activated page-scroll" data-toggle="dropdown">Ventas</a></li>
+            <li class="dropdown"><a href="#clientes" class="dropdown-toggle hvr js-activated page-scroll" data-toggle="dropdown">Clientes</a></li>
             <li class="dropdown"><a href="#contacto" class="dropdown-toggle hvr js-activated page-scroll" data-toggle="dropdown">Contacto</a></li>
           </ul>
         </div>
@@ -178,66 +180,26 @@ $imgGaleria2 = getGalery($mysqli, '2');
   <div class="mb-100 clearfix" id="quienes"></div>
   <!-- end .mb-100 clearfix --> 
   <div class="container">
-	<br/>
-	<br/>
-	<br/>
+    <br/>
     <div class="row wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
       <div class="col-md-12 text-center">
         <h3>Quienes <strong>Somos</strong></h3>
         <div class="titleline-center"></div>
         <!-- end .titleline-center -->
         <p class="lead">
-		Óga porá es una empresa constructora encabeza por Gerardo Rodas que ofrece prestaciones que le permiten brindar soluciones constructivas y de ingenieria desde hace mas de 40 años en Rosario , Buenos Aires y Santa Fe trabajando para varias reparticiones municipales en obras civiles e industriales, de infraestructura urbana , regional, portuarias .También como anexo a nuestra empresa nos hemos desempeñado en la construcción de casas unifamiliares, en emprendimientos particulares y privados.<br/><br/>
-		<span class="highlight-theme">Cultura de trabajo</span> Somos un equipo de trabajo, dedicado a brindar soluciones constructivas. Buscamos satisfacer las necesidades de nuestros clientes, de nuestros empleados y la rentabilidad de nuestros accionistas. La excelente calidad de obra, las finas terminaciones , el estricto cumplimiento de los plazos de entrega , la alta rentabilidad de las unidades y como prioridad uno de respuesta al comprador se ha logrado consolidar una excelente clientela , como las grande firmas que nos contratan y como inversores que nos acompañan en los edificios propios.
-		Los trabajos que hemos realizado, demuestran nuestra capacidad de respuesta, ante los más variados requerimientos de nuestros comitentes, entregando así, obras llave en mano, realizando el proyecto, dirección y ejecución de obra, aceptando la dinámica de cada emprendimiento en particular. La empresa lleva a cabo proyectos propios ,interviniendo en todas la etapas del desarrollo , desde la búsqueda del terreno , proyecto , dirección de obra y  la construcción de unidades habitacionales de vanguardia, aplicando un alto índice de calidad constructiva y de materiales, pasando por el asesoramiento profesional en la personalización de las terminaciones de las unidades vendidas, la garantía otorgada sobre los productos, es el seguimiento post venta.
-		</p>
+            Óga porá es una empresa constructora encabeza por Gerardo Rodas que ofrece prestaciones que le permiten brindar soluciones constructivas y de ingenieria desde hace mas de 40 años en Rosario , Buenos Aires y Santa Fe trabajando para varias reparticiones municipales en obras civiles e industriales, de infraestructura urbana , regional, portuarias .También como anexo a nuestra empresa nos hemos desempeñado en la construcción de casas unifamiliares, en emprendimientos particulares y privados.<br/><br/>
+            <span class="highlight-theme">Cultura de trabajo</span> Somos un equipo de trabajo, dedicado a brindar soluciones constructivas. Buscamos satisfacer las necesidades de nuestros clientes, de nuestros empleados y la rentabilidad de nuestros accionistas. La excelente calidad de obra, las finas terminaciones , el estricto cumplimiento de los plazos de entrega , la alta rentabilidad de las unidades y como prioridad uno de respuesta al comprador se ha logrado consolidar una excelente clientela , como las grande firmas que nos contratan y como inversores que nos acompañan en los edificios propios.
+            Los trabajos que hemos realizado, demuestran nuestra capacidad de respuesta, ante los más variados requerimientos de nuestros comitentes, entregando así, obras llave en mano, realizando el proyecto, dirección y ejecución de obra, aceptando la dinámica de cada emprendimiento en particular. La empresa lleva a cabo proyectos propios ,interviniendo en todas la etapas del desarrollo , desde la búsqueda del terreno , proyecto , dirección de obra y  la construcción de unidades habitacionales de vanguardia, aplicando un alto índice de calidad constructiva y de materiales, pasando por el asesoramiento profesional en la personalización de las terminaciones de las unidades vendidas, la garantía otorgada sobre los productos, es el seguimiento post venta.
+        </p>
       </div>
       <!-- end .col-md-12 --> 
     </div>
   </div>
-  <!-- end .container -->
-  
-  <div class="mb-80" id="proyectos"></div>
-  <!-- end .mb-80 --> 
-  <div class="slash-wrapper">
-    <div class="container">
-      <div class="row wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s" id="proyectos">
-        <div class="col-md-12 text-center">
-          <h3>Obras <strong>Finalizadas</strong></h3>
-          <div class="titleline-center"></div>
-          <!-- end .titleline-center -->
-          <p class="lead">Estas son algunas de las obras en las cuales trabajamos.</p>
-        </div>
-        <!-- end .col-md-12 --> 
-      </div>
-      <!-- end .row --> 
-    
-    <!-- end .container -->
-    
-    <!--nueva galeria-->
-        <div>
-            <ul class="pgwSlider">
-                <?php foreach ($imgGaleria1 as $img){?>
-                <li>
-                    <img src="<?php echo $img['url_img']?>" 
-                         alt="<?php echo $img['titulo']?>" 
-                         data-description="<?php echo $img['descripcion']?>"
-                    />
-                </li>
-                <?php } ?>
-            </ul>
-        </div>
-    </div>
-    <!-- end #owl-portfolio --> 
-  </div>
-  <!-- end .slash-wrapper -->
   
   <div class="mb-100" id="obras"></div>
   <!-- end .mb-100 --> 
   <div class="container">
-	<br/>
-	<br/>
-	<br/>
+    <br/>
     <div class="row wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
         <div class="col-md-12 text-center">
             <h3>Obras en <strong>Proceso</strong></h3>
@@ -277,23 +239,93 @@ $imgGaleria2 = getGalery($mysqli, '2');
                 </div>
                 <?php } ?> 
             <?php $i++;} ?>    
-  <!-- end .container -->
-    <div class="mb-100"></div>
-  <!-- end .mb-100 -->
-	  
+        <!-- end .container -->
+        <div class="mb-100"></div>
+    <!-- end .mb-100 -->
     </div>
-    <!-- end .row -->
-    
-    
     <!-- end .row --> 
   </div>
-  <!-- /.container -->
+  
+  <div class="mb-80" id="proyectos"></div>
+  <!-- end .mb-80 --> 
+  <div class="slash-wrapper">
+    <div class="container">
+      <div class="row wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s" id="proyectos">
+        <div class="col-md-12 text-center">
+          <h3>Obras <strong>Finalizadas</strong></h3>
+          <div class="titleline-center"></div>
+          <!-- end .titleline-center -->
+          <p class="lead">Estas son algunas de las obras en las cuales trabajamos.</p>
+        </div>
+        <!-- end .col-md-12 --> 
+      </div>
+      <!-- end .row --> 
+        <!--nueva galeria-->
+        <div>
+            <ul class="pgwSlider">
+                <?php foreach ($imgGaleria1 as $img){?>
+                <li>
+                    <img src="<?php echo $img['url_img']?>" 
+                         alt="<?php echo $img['titulo']?>" 
+                         data-description="<?php echo $img['descripcion']?>"
+                    />
+                </li>
+                <?php } ?>
+            </ul>
+        </div>
+    </div>
+  </div>
+  
+  <div class="mb-100" id="ventas"></div>
+  <div class="container">
+    <br/>
+    <div class="row wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+        <div class="col-md-12 text-center">
+            <h3>Proyectos en <strong>Venta</strong></h3>
+            <div class="titleline-center"></div>
+            <p class="lead">Los siguientes proyectos se encuentran en venta.</p>
+        </div>
+      	<?php 
+            $i = 0;
+            foreach ($imgGaleria3 as $img3)
+            {
+                if($i%2==0)
+                {?>
+                <div class="row">
+                    <div class="col-md-6"> 
+                        <img src="<?php echo $img3['url_img']?>" class="img-responsive frame" alt="" /> 
+                    </div>
+                    <div class="col-md-6">
+                        <h3><?php echo $img3['titulo']?></h3>
+                        <p>
+                            <span class="dropcap-theme"><?php echo substr($img3['descripcion'],0,1);?></span>
+                            <?php echo $img3['descripcion']?>
+                        </p>
+                    </div>
+                </div>
+                <?php }else{ ?>    
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3><?php echo $img3['titulo']?></h3>
+                        <p>
+                            <span class="dropcap-theme"><?php echo substr($img3['descripcion'],0,1);?></span>
+                            <?php echo $img3['descripcion']?>
+                        </p>
+                    </div>
+                    <div class="col-md-6"> 
+                        <img src="<?php echo $img3['url_img']?>" class="img-responsive frame" alt="" /> 
+                    </div>
+                </div>
+                <?php } ?> 
+            <?php $i++;} ?>    
+        <!-- end .container -->
+        <div class="mb-100"></div>
+    </div>
+  </div>
   
   <div class="mb-100" id="clientes"></div>
   <div class="container">
-	<br/>
     <br/>
-	<br/>
     <div class="row wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
       <div class="col-md-12 text-center">
         <h3>Nuestros <strong>Clientes</strong></h3>
