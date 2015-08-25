@@ -80,8 +80,6 @@ $imgGaleria3 = getGalery($mysqli, '3');
           <ul class="social-icons">
             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-flickr"></i></a></li>
-            <li><a href="#"><i class="fa fa-rss"></i></a></li>
           </ul>
         </div>
         <!-- end .col-md-4 --> 
@@ -250,16 +248,14 @@ $imgGaleria3 = getGalery($mysqli, '3');
   <!-- end .mb-80 --> 
   <div class="slash-wrapper">
     <div class="container">
-      <div class="row wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s" id="proyectos">
-        <div class="col-md-12 text-center">
-          <h3>Obras <strong>Finalizadas</strong></h3>
-          <div class="titleline-center"></div>
-          <!-- end .titleline-center -->
-          <p class="lead">Estas son algunas de las obras en las cuales trabajamos.</p>
+        <div class="row wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s" id="proyectos">
+          <div class="col-md-12 text-center">
+            <h3>Obras <strong>Finalizadas</strong></h3>
+            <div class="titleline-center"></div>
+            <!-- end .titleline-center -->
+            <p class="lead">Estas son algunas de las obras en las cuales trabajamos.</p>
+          </div>
         </div>
-        <!-- end .col-md-12 --> 
-      </div>
-      <!-- end .row --> 
         <!--nueva galeria-->
         <div>
             <ul class="pgwSlider">
