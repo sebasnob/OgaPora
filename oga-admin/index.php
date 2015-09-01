@@ -47,6 +47,7 @@ if (login_check($mysqli) == true) {
                 background-image: url("../images/slider/slider1.jpg");
                 background-repeat: no-repeat;
                 background-color: rgba(128, 128, 128, 0.4);
+                background-size: cover;
             }
             .form-signin
             {
