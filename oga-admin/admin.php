@@ -64,6 +64,13 @@ sec_session_start();
                 cursor: inherit;
                 display: block;
             }
+            .col-md-4{
+                border: 1px solid;
+            }
+            .img-admin{
+                height: 100px;
+                width: 150px;
+            }
         </style>
         
 <?php 
@@ -79,7 +86,7 @@ $imgGaleria3 = getGalery($mysqli, '3');
 <?php    
 if(login_check($mysqli) == true) 
 {?>
-        <div class="container" style="background-color: white; margin-top: 10%">
+        <div class="container" style="background-color: white; margin-top: 10%; padding: 1%">
             <h2>Nuevas Imagenes</h2>
             <div class="col-md-4">
                 <form class="form-inline" enctype="multipart/form-data" method="POST" action="upload.php">
@@ -108,13 +115,13 @@ if(login_check($mysqli) == true)
             </div>
         </div>
         
-        <div class="container" style="background-color: white; margin-top: 10%">
+        <div class="container" style="background-color: white; margin-top: 10%; padding: 1%">
             <h3>Imagenes Obras Finalizadas</h3>
         <?php foreach ($imgGaleria1 as $img){?>
             <div class="col-md-4">
                 <form class="form-inline" enctype="multipart/form-data" method="POST" action="upload.php?id=<?php echo $img['id']?>">
                     <div class="form-group">
-                        <label><img src="../uploads/thumb/<?=$img['url_img'];?>" /></label>
+                        <label><img class="img-admin" src="../uploads/thumb/<?=$img['url_img'];?>" /></label>
                         <span class="btn btn-primary btn-file">
                             Seleccionar Imagen<input type="file" accept="file_extension|image" name="photo">
                         </span>
@@ -147,13 +154,13 @@ if(login_check($mysqli) == true)
         <?php }?>
         </div>
         
-        <div class="container" style="background-color: white; margin-top: 10%">
+        <div class="container" style="background-color: white; margin-top: 10%; padding: 1%">
             <h3>Imagenes Obras en Proceso</h3>
         <?php foreach ($imgGaleria2 as $img){?>
             <div class="col-md-4">
                 <form class="form-inline" enctype="multipart/form-data" method="POST" action="upload.php?id=<?php echo $img['id']?>">
                     <div class="form-group">
-                        <label><img src="../uploads/thumb/<?=$img['url_img'];?>" /></label>
+                        <label><img class="img-admin" src="../uploads/thumb/<?=$img['url_img'];?>" /></label>
                         <span class="btn btn-primary btn-file">
                             Seleccionar Imagen<input type="file" accept="file_extension|image" name="photo">
                         </span>
@@ -186,13 +193,14 @@ if(login_check($mysqli) == true)
         <?php }?>
         </div>
         
-        <div class="container" style="background-color: white; margin-top: 10%">
+        <div class="container" style="background-color: white; margin-top: 10%; padding: 1%">
             <h3>Imagenes Ventas</h3>
         <?php foreach ($imgGaleria3 as $img){?>
             <div class="col-md-4">
                 <form class="form-inline" enctype="multipart/form-data" method="POST" action="upload.php?id=<?php echo $img['id']?>">
+                    <input type="hidden" value="<?php echo $img['id']?>" id="id_proyecto">
                     <div class="form-group">
-                        <label><img src="../uploads/thumb/<?=$img['url_img'];?>" /></label>
+                        <label><img class="img-admin" src="../uploads/thumb/<?=$img['url_img'];?>" /></label>
                         <span class="btn btn-primary btn-file">
                             Seleccionar Imagen<input type="file" accept="file_extension|image" name="photo">
                         </span>    
@@ -218,8 +226,11 @@ if(login_check($mysqli) == true)
                             <option value="3" <?php echo $sel3?>>Ventas</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-success">Editar</button>
-                    <button type="button" onclick="borrar(this.form)" class="btn btn-danger">Borrar</button>
+                    <div>
+                        <button type="submit" class="btn btn-success">Editar</button>
+                        <button type="button" onclick="borrar(this.form)" class="btn btn-danger">Borrar</button>
+                        <button type="button" onclick="editar(this.form)" class="btn btn-warning">Editar Proyecto</button>
+                    </div>    
                 </form>
             </div>
         <?php }?>

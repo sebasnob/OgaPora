@@ -123,6 +123,23 @@ function getGalery($mysqli, $galeria)
     return $respuesta;
 
 }
+
+function getGaleryProyectos($mysqli, $id)
+{
+    $resultado = $mysqli->query("SELECT * FROM img_propiedades WHERE img_propiedades.id_img_galerias = " . $id);
+    
+    $respuesta = array();
+    while ($fila = $resultado->fetch_assoc()) 
+    {
+        $respuesta[] = array("id" => $fila['id'],"titulo" => $fila['titulo'], "descripcion" => $fila['descripcion'], "url_img" => $fila['url_img']);
+    }
+    /* liberar el conjunto de resultados */
+    $resultado->free();
+    
+    return $respuesta;
+
+}
+
 function login_check($mysqli) {
     // Check if all session variables are set 
     if (isset($_SESSION['user_id'], 

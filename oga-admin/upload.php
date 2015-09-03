@@ -131,81 +131,87 @@ if(login_check($mysqli) == true)
         header('Location: admin.php');
     }
     else
-    {    
-        //if they DID upload a file...
-        if(isset($_FILES['photo']['name']) && $_FILES['photo']['name'] != '')
+    {   
+        if($_POST['action'] == 'proyecto')
         {
-                //if no errors...
-                if(!$_FILES['photo']['error'])
-                {
-                    $valid_file = true;
-                        //now is the time to modify the future file name and validate the file
-                        $new_file_name = strtolower($_FILES['photo']['name']); //rename file
-                        if($_FILES['photo']['size'] > (6144000)) //can't be larger than 6 MB
-                        {
-                            $valid_file = false;
-                            $message = 'Oops!  Your file\'s size is to large.';
-                        }
-
-                        $pos = strpos($_FILES['photo']['type'], "image");
-                        if ($pos === FALSE)
-                        {
-                            $valid_file = false;
-                            $message = 'Oops!  El archivo no es una imagen.';
-                        }
-
-                        //if the file has passed the test
-                        if($valid_file)
-                        {
-                            //move it to where we want it to be
-                            $ruta = 'uploads/'.$new_file_name;
-                            //ruta temporal donde se aguarda la imagen antes de ser redimensionada y movida a "uploads"
-                            $ruta_temp = 'uploads/temp/'.$new_file_name;
-                            //ruta de los thumbs
-                            $ruta_thumb = 'uploads/thumb/uploads/'.$new_file_name;
-                            
-                            move_uploaded_file($_FILES['photo']['tmp_name'], '../'.$ruta_temp);
-                            
-                            $newImg = new resize('../'.$ruta_temp);
-                            $newImg->resizeImage(800,600);
-                            $exito = $newImg->saveImage('../'.$ruta);
-                            if($exito)
+            
+        }
+        else
+        {
+            //if they DID upload a file...
+            if(isset($_FILES['photo']['name']) && $_FILES['photo']['name'] != '')
+            {
+                    //if no errors...
+                    if(!$_FILES['photo']['error'])
+                    {
+                        $valid_file = true;
+                            //now is the time to modify the future file name and validate the file
+                            $new_file_name = strtolower($_FILES['photo']['name']); //rename file
+                            if($_FILES['photo']['size'] > (6144000)) //can't be larger than 6 MB
                             {
-                                unlink('../'.$ruta_temp);
-                                
-                                //creo el thumb
-                                $newThumb = new resize('../'.$ruta);
-                                $newThumb->resizeImage(150,632,"landscape");
-                                $exito = $newThumb->saveImage('../'.$ruta_thumb);
-                                
-                                $resutl = $mysqli->query("INSERT INTO img_galerias(titulo, descripcion, url_img, galeria) VALUES ('{$_POST['titulo']}', '{$_POST['desc']}', '{$ruta}', '{$_POST['galeria']}')");
+                                $valid_file = false;
+                                $message = 'Oops!  Your file\'s size is to large.';
+                            }
 
-                                if($resutl)
+                            $pos = strpos($_FILES['photo']['type'], "image");
+                            if ($pos === FALSE)
+                            {
+                                $valid_file = false;
+                                $message = 'Oops!  El archivo no es una imagen.';
+                            }
+
+                            //if the file has passed the test
+                            if($valid_file)
+                            {
+                                //move it to where we want it to be
+                                $ruta = 'uploads/'.$new_file_name;
+                                //ruta temporal donde se aguarda la imagen antes de ser redimensionada y movida a "uploads"
+                                $ruta_temp = 'uploads/temp/'.$new_file_name;
+                                //ruta de los thumbs
+                                $ruta_thumb = 'uploads/thumb/uploads/'.$new_file_name;
+
+                                move_uploaded_file($_FILES['photo']['tmp_name'], '../'.$ruta_temp);
+
+                                $newImg = new resize('../'.$ruta_temp);
+                                $newImg->resizeImage(800,600);
+                                $exito = $newImg->saveImage('../'.$ruta);
+                                if($exito)
                                 {
-                                    $message = 'Congratulations!  Your file was accepted.';
-                                } 
+                                    unlink('../'.$ruta_temp);
+
+                                    //creo el thumb
+                                    $newThumb = new resize('../'.$ruta);
+                                    $newThumb->resizeImage(150,632,"landscape");
+                                    $exito = $newThumb->saveImage('../'.$ruta_thumb);
+
+                                    $resutl = $mysqli->query("INSERT INTO img_galerias(titulo, descripcion, url_img, galeria) VALUES ('{$_POST['titulo']}', '{$_POST['desc']}', '{$ruta}', '{$_POST['galeria']}')");
+
+                                    if($resutl)
+                                    {
+                                        $message = 'Congratulations!  Your file was accepted.';
+                                    } 
+                                    else
+                                    {
+                                        $message = 'Algo salio mal con la query a la db';
+                                        $valid_file = false;
+                                    }
+                                }
                                 else
                                 {
-                                    $message = 'Algo salio mal con la query a la db';
+                                    $message = 'Error moviendo el archivo';
                                     $valid_file = false;
-                                }
+                                }                        
                             }
-                            else
-                            {
-                                $message = 'Error moviendo el archivo';
-                                $valid_file = false;
-                            }                        
-                        }
-                    $resultado = $valid_file;
-                }
-                //if there is an error...
-                else
-                {
-                    //set that to be the returned message
-                    $message = 'Ooops!  Your upload triggered the following error:  '.$_FILES['photo']['error'];
-                }
+                        $resultado = $valid_file;
+                    }
+                    //if there is an error...
+                    else
+                    {
+                        //set that to be the returned message
+                        $message = 'Ooops!  Your upload triggered the following error:  '.$_FILES['photo']['error'];
+                    }
+            }
         }
-
         header('Location: admin.php');
     }
 }    

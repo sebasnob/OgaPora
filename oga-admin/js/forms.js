@@ -3,6 +3,13 @@ function borrar(form){
     form.submit();
 }
 
+function editar(form)
+{
+    var id_proyecto = $("#id_proyecto").val();
+    form.action = "adminProyectos.php?id_proyecto=" + id_proyecto;
+    form.submit();
+}
+
 function formhash(form, password) {
     // Create a new element input, this will be our hashed password field. 
     var p = document.createElement("input");
