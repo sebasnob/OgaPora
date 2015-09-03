@@ -75,9 +75,9 @@ sec_session_start();
         
 <?php 
 
-if(!isset($_GET['id_proyecto'])){
+/*if(!isset($_GET['id_proyecto'])){
         header('location: admin.php');
-}
+}*/
 $imgGaleria3 = getGaleryProyectos($mysqli, $_GET['id_proyecto']);
 
 ?>
@@ -91,7 +91,7 @@ if(login_check($mysqli) == true)
             <h2>Nuevas Imagenes Del Proyecto</h2>
             <div class="col-md-4">
                 <form class="form-inline" enctype="multipart/form-data" method="POST" action="upload.php">
-                    <input type="hidden" value="proyecto" name="action" id="action">
+                    <input type="hidden" value="<?php echo $_GET['id_proyecto']?>" name="id_proyecto" id="id_proyecto" />
                     <div class="form-group">
                         <label>Imagen: </label>
                         <input type="file" accept="file_extension|image" class="form-control" name="photo" required autofocus>
@@ -115,7 +115,7 @@ if(login_check($mysqli) == true)
             <div class="col-md-4">
                 <form class="form-inline" enctype="multipart/form-data" method="POST" action="upload.php?id=<?php echo $img['id']?>">
                     <div class="form-group">
-                        <label><img class="img-admin" src="../uploads/thumb/<?=$img['url_img'];?>" /></label>
+                        <label><img class="img-admin" src="../uploads/proyectos/thumb/<?=$img['url_img'];?>" /></label>
                         <span class="btn btn-primary btn-file">
                             Seleccionar Imagen<input type="file" accept="file_extension|image" name="photo">
                         </span>    

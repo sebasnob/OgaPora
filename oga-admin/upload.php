@@ -132,9 +132,82 @@ if(login_check($mysqli) == true)
     }
     else
     {   
-        if($_POST['action'] == 'proyecto')
+        if($_POST['id_proyecto'])
         {
-            
+            if(isset($_FILES['photo']['name']) && $_FILES['photo']['name'] != '')
+            {
+                    //if no errors...
+                    if(!$_FILES['photo']['error'])
+                    {
+                        $valid_file = true;
+                            //now is the time to modify the future file name and validate the file
+                            $new_file_name = strtolower($_FILES['photo']['name']); //rename file
+                            if($_FILES['photo']['size'] > (6144000)) //can't be larger than 6 MB
+                            {
+                                $valid_file = false;
+                                $message = 'Oops!  Your file\'s size is to large.';
+                            }
+
+                            $pos = strpos($_FILES['photo']['type'], "image");
+                            if ($pos === FALSE)
+                            {
+                                $valid_file = false;
+                                $message = 'Oops!  El archivo no es una imagen.';
+                            }
+
+                            //if the file has passed the test
+                            if($valid_file)
+                            {
+                                //move it to where we want it to be
+                                $ruta = 'uploads/proyectos/'.$new_file_name;
+                                //ruta temporal donde se aguarda la imagen antes de ser redimensionada y movida a "uploads/proyectos"
+                                $ruta_temp = 'uploads/proyectos/temp/'.$new_file_name;
+                                //ruta de los thumbs
+                                $ruta_thumb = 'uploads/proyectos/thumb/uploads/proyectos/'.$new_file_name;
+
+                                move_uploaded_file($_FILES['photo']['tmp_name'], '../'.$ruta_temp);
+
+                                $newImg = new resize('../'.$ruta_temp);
+                                $newImg->resizeImage(800,600);
+                                $exito = $newImg->saveImage('../'.$ruta);
+                                if($exito)
+                                {
+                                    unlink('../'.$ruta_temp);
+
+                                    //creo el thumb
+                                    $newThumb = new resize('../'.$ruta);
+                                    $newThumb->resizeImage(150,632,"landscape");
+                                    $exito = $newThumb->saveImage('../'.$ruta_thumb);
+
+                                    $resutl = $mysqli->query("INSERT INTO img_propiedades(titulo, descripcion, url_img, id_img_galerias) VALUES ('{$_POST['titulo']}', '{$_POST['desc']}', '{$ruta}', '{$_POST['id_proyecto']}')");
+
+                                    if($resutl)
+                                    {
+                                        $message = 'Congratulations!  Your file was accepted.';
+                                    } 
+                                    else
+                                    {
+                                        $message = 'Algo salio mal con la query a la db';
+                                        $valid_file = false;
+                                    }
+                                }
+                                else
+                                {
+                                    $message = 'Error moviendo el archivo';
+                                    $valid_file = false;
+                                }                        
+                            }
+                        $resultado = $valid_file;
+                        
+                    }
+                    //if there is an error...
+                    else
+                    {
+                        //set that to be the returned message
+                        $message = 'Ooops!  Your upload triggered the following error:  '.$_FILES['photo']['error'];
+                    }
+                    header('Location: adminProyectos.php?id_proyecto='.$_POST['id_proyecto']);
+            }
         }
         else
         {

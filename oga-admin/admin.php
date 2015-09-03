@@ -229,7 +229,7 @@ if(login_check($mysqli) == true)
                     <div>
                         <button type="submit" class="btn btn-success">Editar</button>
                         <button type="button" onclick="borrar(this.form)" class="btn btn-danger">Borrar</button>
-                        <button type="button" onclick="editar(this.form)" class="btn btn-warning">Editar Proyecto</button>
+                        <a href="adminProyectos.php?id_proyecto=<?php echo $img['id']?>" class="btn btn-warning">Editar Proyecto</a>
                     </div>    
                 </form>
             </div>
