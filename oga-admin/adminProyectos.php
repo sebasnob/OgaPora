@@ -113,7 +113,8 @@ if(login_check($mysqli) == true)
             <h3>Imagenes Ventas</h3>
         <?php foreach ($imgGaleria3 as $img){?>
             <div class="col-md-4">
-                <form class="form-inline" enctype="multipart/form-data" method="POST" action="upload.php?id=<?php echo $img['id']?>">
+                <form class="form-inline" enctype="multipart/form-data" method="POST" action="upload.php?id_imagen=<?php echo $img['id']?>">
+                    <input type="hidden" value="<?php echo $_GET['id_proyecto']?>" name="id_proyecto" id="id_proyecto" />
                     <div class="form-group">
                         <label><img class="img-admin" src="../uploads/proyectos/thumb/<?=$img['url_img'];?>" /></label>
                         <span class="btn btn-primary btn-file">

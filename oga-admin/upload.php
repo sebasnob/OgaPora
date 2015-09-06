@@ -207,6 +207,32 @@ if(login_check($mysqli) == true)
                         $message = 'Ooops!  Your upload triggered the following error:  '.$_FILES['photo']['error'];
                     }
                     header('Location: adminProyectos.php?id_proyecto='.$_POST['id_proyecto']);
+            }else{
+                //Borrar imagen del proyecto
+                $id_proyecto = $_POST['id_proyecto'];
+                $id_imagen = $_GET['id_imagen'];
+                $stmt = $mysqli->prepare("SELECT url_img FROM img_propiedades WHERE id = ?");
+                $stmt->bind_param('s', $id_imagen);
+                $stmt->execute();
+
+                /* ligar variables de resultado */
+                $stmt->bind_result($url_img);
+
+                /* obtener valor */
+                $stmt->fetch();
+                $stmt->close();
+                //die(file_exists($url_img));
+                if(file_exists("../".$url_img))
+                {
+                    unlink("../".$url_img);
+                    unlink("../uploads/proyectos/thumb/".$url_img);
+                }
+                
+                $result = $mysqli->query("DELETE FROM img_propiedades WHERE id=".$id_imagen);
+                if($result){
+                    $message = 'El proyecto se elimino correctamnete.';
+                }
+                header('Location: /adminProyectos.php?id_proyecto='.$id_proyecto);
             }
         }
         else
