@@ -129,9 +129,11 @@ if(login_check($mysqli) == true)
             }
         }
         header('Location: admin.php');
+        exit;
     }
     else
     {   
+        //Si viene el id del proyecto, agrego edito, borro o agrego imagenes al mismo. Sino es un alta de proyecto nueva
         if($_POST['id_proyecto'])
         {
             if(isset($_FILES['photo']['name']) && $_FILES['photo']['name'] != '')
@@ -158,6 +160,26 @@ if(login_check($mysqli) == true)
                             //if the file has passed the test
                             if($valid_file)
                             {
+                                //Si viene el id de la imagen, borro los archivos fisicos
+                                if(isset($_GET['id_imagen'])){
+                                    $stmt = $mysqli->prepare("SELECT url_img FROM img_propiedades WHERE id = ?");
+                                    $stmt->bind_param('s', $_GET['id_imagen']);
+                                    $stmt->execute();
+
+                                    /* ligar variables de resultado */
+                                    $stmt->bind_result($url_img);
+
+                                    /* obtener valor */
+                                    $stmt->fetch();
+                                    $stmt->close();
+                                    //die(file_exists($url_img));
+                                    if(file_exists("../".$url_img))
+                                    {
+                                        unlink("../".$url_img);
+                                        unlink("../uploads/proyectos/thumb/".$url_img);
+                                    }
+                                }
+                                
                                 //move it to where we want it to be
                                 $ruta = 'uploads/proyectos/'.$new_file_name;
                                 //ruta temporal donde se aguarda la imagen antes de ser redimensionada y movida a "uploads/proyectos"
@@ -178,8 +200,13 @@ if(login_check($mysqli) == true)
                                     $newThumb = new resize('../'.$ruta);
                                     $newThumb->resizeImage(150,632,"landscape");
                                     $exito = $newThumb->saveImage('../'.$ruta_thumb);
-
-                                    $resutl = $mysqli->query("INSERT INTO img_propiedades(titulo, descripcion, url_img, id_img_galerias) VALUES ('{$_POST['titulo']}', '{$_POST['desc']}', '{$ruta}', '{$_POST['id_proyecto']}')");
+                                    
+                                    //Si viene el id de la imagen, la edito, sino es un alta nueva
+                                    if(isset($_GET['id_imagen'])){
+                                        $resutl = $mysqli->query("UPDATE img_propiedades SET titulo='{$_POST['titulo']}', descripcion='{$_POST['desc']}', url_img='{$ruta}' WHERE id=".$_GET['id_imagen']);
+                                    }else{
+                                        $resutl = $mysqli->query("INSERT INTO img_propiedades(titulo, descripcion, url_img, id_img_galerias) VALUES ('{$_POST['titulo']}', '{$_POST['desc']}', '{$ruta}', '{$_POST['id_proyecto']}')");
+                                    }    
 
                                     if($resutl)
                                     {
@@ -198,46 +225,50 @@ if(login_check($mysqli) == true)
                                 }                        
                             }
                         $resultado = $valid_file;
-                        
                     }
-                    //if there is an error...
                     else
                     {
                         //set that to be the returned message
                         $message = 'Ooops!  Your upload triggered the following error:  '.$_FILES['photo']['error'];
                     }
                     header('Location: adminProyectos.php?id_proyecto='.$_POST['id_proyecto']);
+                    exit;
             }else{
-                //Borrar imagen del proyecto
                 $id_proyecto = $_POST['id_proyecto'];
-                $id_imagen = $_GET['id_imagen'];
-                $stmt = $mysqli->prepare("SELECT url_img FROM img_propiedades WHERE id = ?");
-                $stmt->bind_param('s', $id_imagen);
-                $stmt->execute();
+                if(isset($_GET['borrar'])){
+                    //Borrar imagen del proyecto
+                    $id_imagen = $_GET['id_imagen'];
+                    $stmt = $mysqli->prepare("SELECT url_img FROM img_propiedades WHERE id = ?");
+                    $stmt->bind_param('s', $id_imagen);
+                    $stmt->execute();
 
-                /* ligar variables de resultado */
-                $stmt->bind_result($url_img);
+                    /* ligar variables de resultado */
+                    $stmt->bind_result($url_img);
 
-                /* obtener valor */
-                $stmt->fetch();
-                $stmt->close();
-                //die(file_exists($url_img));
-                if(file_exists("../".$url_img))
-                {
-                    unlink("../".$url_img);
-                    unlink("../uploads/proyectos/thumb/".$url_img);
+                    /* obtener valor */
+                    $stmt->fetch();
+                    $stmt->close();
+                    //die(file_exists($url_img));
+                    if(file_exists("../".$url_img))
+                    {
+                        unlink("../".$url_img);
+                        unlink("../uploads/proyectos/thumb/".$url_img);
+                    }
+
+                    $result = $mysqli->query("DELETE FROM img_propiedades WHERE id=".$id_imagen);
+                    if($result){
+                        $message = 'El proyecto se elimino correctamnete.';
+                    }
+                }else{
+                    $mysqli->query("UPDATE img_propiedades SET titulo='{$_POST['titulo']}', descripcion='{$_POST['desc']}' WHERE id=".$_GET['id_imagen']);
                 }
-                
-                $result = $mysqli->query("DELETE FROM img_propiedades WHERE id=".$id_imagen);
-                if($result){
-                    $message = 'El proyecto se elimino correctamnete.';
-                }
-                header('Location: /adminProyectos.php?id_proyecto='.$id_proyecto);
+                header('Location: adminProyectos.php?id_proyecto='.$id_proyecto);
+                exit;
             }
         }
         else
         {
-            //if they DID upload a file...
+            //Es un proyecto nuevo
             if(isset($_FILES['photo']['name']) && $_FILES['photo']['name'] != '')
             {
                     //if no errors...
@@ -312,6 +343,7 @@ if(login_check($mysqli) == true)
             }
         }
         header('Location: admin.php');
+        exit;
     }
 }    
 else
