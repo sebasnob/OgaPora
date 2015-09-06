@@ -75,9 +75,10 @@ sec_session_start();
         
 <?php 
 
-/*if(!isset($_GET['id_proyecto'])){
-        header('location: admin.php');
-}*/
+if($_GET['id_proyecto'] == ''){
+    header('location: admin.php');
+    exit;
+}
 $imgGaleria3 = getGaleryProyectos($mysqli, $_GET['id_proyecto']);
 
 ?>
