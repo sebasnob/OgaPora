@@ -2756,3 +2756,12 @@ input.checkbox { border: none; }
  background-image: url("../images/assets/close%402x.png");
 }
 }
+
+.linke:hover{
+    text-decoration: none;
+    color: #7dbce4;
+}
+
+.linke:visited{
+    text-decoration: none;
+}

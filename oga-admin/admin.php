@@ -193,7 +193,7 @@ if(login_check($mysqli) == true)
         <?php }?>
         </div>
         
-        <div class="container" style="background-color: white; margin-top: 10%; padding: 1%">
+        <div class="container" id="ventas" style="background-color: white; margin-top: 10%; padding: 1%">
             <h3>Imagenes Ventas</h3>
         <?php foreach ($imgGaleria3 as $img){?>
             <div class="col-md-4">
@@ -229,7 +229,7 @@ if(login_check($mysqli) == true)
                     <div>
                         <button type="submit" class="btn btn-success">Editar</button>
                         <button type="button" onclick="borrar(this.form)" class="btn btn-danger">Borrar</button>
-                        <a href="adminProyectos.php?id_proyecto=<?php echo $img['id']?>" class="btn btn-warning">Editar Proyecto</a>
+                        <a href="adminProyectos.php?id_proyecto=<?php echo $img['id']?>&titulo=<?php echo $img['titulo']?>" class="btn btn-warning">Editar Proyecto</a>
                     </div>    
                 </form>
             </div>

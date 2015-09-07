@@ -134,9 +134,9 @@ $imgGaleria3 = getGalery($mysqli, '3');
 			data-splitout="none"
 			data-elementdelay="0.1"
 			data-endelementdelay="0.1"
-			data-end="13000"
+			data-end="130000"
 			data-endspeed="1000"
-			style="z-index: 20; max-width: auto; max-height: auto; white-space: nowrap;">Bienvenidos a <strong>Oga Pora</strong></div>
+                        style="z-index: 20; max-width: auto; max-height: auto; white-space: nowrap;">Bienvenidos a <strong style="color: #528FCC">&Oacute;ga Por&atilde;</strong></div>
           
           <!-- LAYER NR. 2 -->
          <div class="tp-caption black-normal skewfromright randomrotateout tp-resizeme rs-parallaxlevel-0"
@@ -149,7 +149,7 @@ $imgGaleria3 = getGalery($mysqli, '3');
 			data-splitout="none"
 			data-elementdelay="0.1"
 			data-endelementdelay="0.1"
-			data-end="13500"
+			data-end="135000"
 			data-endspeed="1000"
 			style="z-index: 20; max-width: auto; max-height: auto; white-space: nowrap;">Empresa <strong>Constructora</strong></div>
           
@@ -164,7 +164,7 @@ $imgGaleria3 = getGalery($mysqli, '3');
 			data-splitout="none"
 			data-elementdelay="0.1"
 			data-endelementdelay="0.1"
-			data-end="14000"
+			data-end="140000"
 			data-endspeed="1000"
 			style="z-index: 20; max-width: auto; max-height: auto; white-space: nowrap;">Soluciones constructivas y de ingenieria</div>
         </li>
@@ -296,6 +296,8 @@ $imgGaleria3 = getGalery($mysqli, '3');
                         <p>
                             <span class="dropcap-theme"><?php echo substr($img3['descripcion'],0,1);?></span>
                             <?php echo $img3['descripcion']?>
+                            <br>
+                            <a href="proyectos.php?id_proyecto=<?php echo $img3['id']?>&nombre_proyecto=<?php echo $img3['titulo']?>" class="btn-outline linke">m&aacute;s info</a>
                         </p>
                     </div>
                 </div>
@@ -306,6 +308,8 @@ $imgGaleria3 = getGalery($mysqli, '3');
                         <p>
                             <span class="dropcap-theme"><?php echo substr($img3['descripcion'],0,1);?></span>
                             <?php echo $img3['descripcion']?>
+                            <br>
+                            <a href="/proyectos.php?id_proyecto=<?php echo $img3['id']?>&nombre_proyecto=<?php echo $img3['titulo']?>" class="btn-outline linke">m&aacute;s info</a>
                         </p>
                     </div>
                     <div class="col-md-6"> 

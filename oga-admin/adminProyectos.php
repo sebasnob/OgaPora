@@ -89,7 +89,8 @@ $imgGaleria3 = getGaleryProyectos($mysqli, $_GET['id_proyecto']);
 if(login_check($mysqli) == true) 
 {?>
         <div class="container" style="background-color: white; margin-top: 10%; padding: 1%">
-            <h2>Nuevas Imagenes Del Proyecto</h2>
+            <h1>Proyecto: <?php echo $_GET['titulo']?></h1>
+            <h2>Agregar Imagenes</h2>
             <div class="col-md-4">
                 <form class="form-inline" enctype="multipart/form-data" method="POST" action="upload.php">
                     <input type="hidden" value="<?php echo $_GET['id_proyecto']?>" name="id_proyecto" id="id_proyecto" />
@@ -110,8 +111,9 @@ if(login_check($mysqli) == true)
                 </form>
             </div>
         </div>
+            
         <div class="container" style="background-color: white; margin-top: 10%; padding: 1%">
-            <h3>Imagenes Ventas</h3>
+
         <?php foreach ($imgGaleria3 as $img){?>
             <div class="col-md-4">
                 <form class="form-inline" enctype="multipart/form-data" method="POST" action="upload.php?id_imagen=<?php echo $img['id']?>">
@@ -138,6 +140,9 @@ if(login_check($mysqli) == true)
                 </form>
             </div>
         <?php }?>
+            <div class="col-md-12" style="margin: 1%">
+                <a class="btn btn-info" value="volver" href="admin.php">volver</a>
+            </div>    
         </div>
 <?php
 }
@@ -146,4 +151,9 @@ else
     echo 'You are not authorized to access this page, please login.';
 }
 ?>
-    <body>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+<body>

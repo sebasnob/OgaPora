@@ -108,6 +108,7 @@ function checkbrute($user_id, $mysqli) {
         }
     }
 }
+
 function getGalery($mysqli, $galeria)
 {
     $resultado = $mysqli->query("SELECT * FROM img_galerias WHERE img_galerias.galeria = " . $galeria);
@@ -121,7 +122,17 @@ function getGalery($mysqli, $galeria)
     $resultado->free();
     
     return $respuesta;
+}
 
+function getProyecto($mysqli, $id)
+{
+    $resultado = $mysqli->query("SELECT * FROM img_galerias WHERE img_galerias.id = " . $id);
+    
+    $fila = $resultado->fetch_assoc();
+    
+    /* liberar el conjunto de resultados */
+    $resultado->free();
+    return $fila;
 }
 
 function getGaleryProyectos($mysqli, $id)
@@ -137,7 +148,6 @@ function getGaleryProyectos($mysqli, $id)
     $resultado->free();
     
     return $respuesta;
-
 }
 
 function login_check($mysqli) {
