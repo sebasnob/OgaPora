@@ -309,7 +309,7 @@ $imgGaleria3 = getGalery($mysqli, '3');
                             <span class="dropcap-theme"><?php echo substr($img3['descripcion'],0,1);?></span>
                             <?php echo $img3['descripcion']?>
                             <br>
-                            <a href="/proyectos.php?id_proyecto=<?php echo $img3['id']?>&nombre_proyecto=<?php echo $img3['titulo']?>" class="btn-outline linke">m&aacute;s info</a>
+                            <a href="proyectos.php?id_proyecto=<?php echo $img3['id']?>&nombre_proyecto=<?php echo $img3['titulo']?>" class="btn-outline linke">m&aacute;s info</a>
                         </p>
                     </div>
                     <div class="col-md-6"> 
@@ -428,6 +428,8 @@ $imgGaleria3 = getGalery($mysqli, '3');
 
 $(document).ready(function() {
     $('.pgwSlider').pgwSlider();
+    
+    
 });
 
 //$(document).ready(function() {
@@ -451,6 +453,7 @@ $(document).ready(function() {
 //		height: 310
 //	});
 //});
+
 
 </script>
 

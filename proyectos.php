@@ -94,26 +94,6 @@ if($_GET['id_proyecto'] == ''){
   </div>
   <!-- end #topbar --> 
   
-  <header id="header">
-    <nav class="navbar yamm navbar-default navbar-static-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand dropdown-toggle page-scroll" href="#topbar"><img src="images/logo.png" alt="" /></a>
-		</div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown"><a href="index.php#topbar" class="dropdown-toggle hvr">Inicio</a></li>
-            <li class="dropdown"><a href="index.php#quienes" class="dropdown-toggle hvr">Quienes Somos</a></li>
-            <li class="dropdown"><a href="index.php#obras" class="dropdown-toggle hvr">Obras en Proceso</a></li>
-            <li class="dropdown"><a href="index.php#proyectos" class="dropdown-toggle hvr">Obras Finalizadas</a></li>
-            <li class="dropdown"><a href="index.php#ventas" class="dropdown-toggle hvr">Ventas</a></li>
-            <li class="dropdown"><a href="index.php#clientes" class="dropdown-toggle hvr">Clientes</a></li>
-            <li class="dropdown"><a href="index.php#contacto" class="dropdown-toggle hvr">Contacto</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
   <!-- end #header -->
   <div class="clearfix"></div>
   <!-- end .clearfix --> 
@@ -188,7 +168,7 @@ if($_GET['id_proyecto'] == ''){
             <li><i class="fa fa-phone"></i><span>Telefonos:</span><br>
               (0341)-153051985<br/>(0341)-2431688</li>
             <li><i class="fa fa-envelope"></i><span>E-mail:</span><br>
-              <a href="mailto:#">mail@example.com</a></li>
+              <a href="mailto:#">contacto@ogapora.com</a></li>
           </ul>
         </div>
         <!-- end .col-md-3 --> 
