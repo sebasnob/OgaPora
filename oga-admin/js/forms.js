@@ -2,6 +2,10 @@ function borrar(form){
     form.action = form.action + "&borrar=true";
     form.submit();
 }
+function update(form){
+    form.action = form.action + "&update=true";
+    form.submit();
+}
 
 function formhash(form, password) {
     // Create a new element input, this will be our hashed password field. 

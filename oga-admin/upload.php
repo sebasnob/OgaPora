@@ -233,9 +233,13 @@ if(login_check($mysqli) == true)
                     }
                     header('Location: adminProyectos.php?id_proyecto='.$_POST['id_proyecto']);
                     exit;
-            }else{
+            }
+            else
+            {
                 $id_proyecto = $_POST['id_proyecto'];
-                if(isset($_GET['borrar'])){
+                
+                if(isset($_GET['borrar']))
+                {
                     //Borrar imagen del proyecto
                     $id_imagen = $_GET['id_imagen'];
                     $stmt = $mysqli->prepare("SELECT url_img FROM img_propiedades WHERE id = ?");
@@ -259,8 +263,15 @@ if(login_check($mysqli) == true)
                     if($result){
                         $message = 'El proyecto se elimino correctamnete.';
                     }
-                }else{
+                }
+                elseif (isset($_GET['update']))
+                {
                     $mysqli->query("UPDATE img_propiedades SET titulo='{$_POST['titulo']}', descripcion='{$_POST['desc']}' WHERE id=".$_GET['id_imagen']);
+                }
+                //si viene con id de proyectos y sin los parametros borrar o update, no valido nada para insertar nulos
+                else
+                {
+                    $result = $mysqli->query("INSERT INTO img_propiedades(id_img_galerias, url_img, descripcion, titulo) VALUES ($id_proyecto, null, '{$_POST['desc']}', '{$_POST['titulo']}')");
                 }
                 header('Location: adminProyectos.php?id_proyecto='.$id_proyecto);
                 exit;

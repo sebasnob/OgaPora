@@ -118,7 +118,6 @@ if($_GET['id_proyecto'] == ''){
             foreach ($imgGaleria3 as $img3)
             {?>
                 <div class="col-md-4">
-                    <h3><?php echo $img3['titulo']?></h3>
                     <img src="<?php echo $img3['url_img']?>" class="img-responsive frame" alt="" /> 
                     <h3><?php echo $img3['titulo']?></h3>
                     <p>

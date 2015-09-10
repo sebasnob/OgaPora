@@ -258,16 +258,52 @@ $imgGaleria3 = getGalery($mysqli, '3');
         </div>
         <!--nueva galeria-->
         <div>
-            <ul class="pgwSlider">
-                <?php foreach ($imgGaleria1 as $img){?>
-                <li>
-                    <img src="<?php echo $img['url_img']?>" 
-                         alt="<?php echo $img['titulo']?>" 
-                         data-description="<?php echo $img['descripcion']?>"
-                    />
-                </li>
-                <?php } ?>
-            </ul>
+            <?php 
+            $i = 0;
+            foreach ($imgGaleria1 as $img1)
+            {
+                if($i%2==0)
+                {?>
+                <div class="row">
+                    <div class="col-md-6"> 
+                        <img src="<?php echo $img1['url_img']?>" class="img-responsive frame" alt="" /> 
+                    </div>
+                    <div class="col-md-6">
+                        <h3><?php echo $img1['titulo']?></h3>
+                        <p>
+                            <span class="dropcap-theme"><?php echo substr($img1['descripcion'],0,1);?></span>
+                            <?php 
+                                if(strlen($img1['descripcion']) > 700)
+                                {
+                                    echo substr($img1['descripcion'],0,700) . "...";
+                                }
+                                else
+                                {
+                                    echo $img1['descripcion'];
+                                }
+                            ?>
+                            <br>
+                            <a href="proyectos.php?id_proyecto=<?php echo $img1['id']?>&nombre_proyecto=<?php echo $img1['titulo']?>" class="btn-outline linke">m&aacute;s info</a>
+                        </p>
+                    </div>
+                </div>
+                <?php }else{ ?>    
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3><?php echo $img3['titulo']?></h3>
+                        <p>
+                            <span class="dropcap-theme"><?php echo substr($img3['descripcion'],0,1);?></span>
+                            <?php echo $img3['descripcion']?>
+                            <br>
+                            <a href="proyectos.php?id_proyecto=<?php echo $img3['id']?>&nombre_proyecto=<?php echo $img3['titulo']?>" class="btn-outline linke">m&aacute;s info</a>
+                        </p>
+                    </div>
+                    <div class="col-md-6"> 
+                        <img src="<?php echo $img3['url_img']?>" class="img-responsive frame" alt="" /> 
+                    </div>
+                </div>
+                <?php } ?> 
+            <?php $i++;} ?>  
         </div>
     </div>
   </div>

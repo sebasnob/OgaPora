@@ -88,8 +88,8 @@ if(login_check($mysqli) == true)
 {?>
         <div class="container" style="background-color: white; margin-top: 10%; padding: 1%">
             <h2>Nuevas Imagenes</h2>
-            <div class="col-md-4">
-                <form class="form-inline" enctype="multipart/form-data" method="POST" action="upload.php">
+            <div class="col-md-12">
+                <form class="form" enctype="multipart/form-data" method="POST" action="upload.php">
                     <div class="form-group">
                         <label>Imagen: </label>
                         <input type="file" accept="file_extension|image" class="form-control" name="photo" required autofocus>
@@ -100,7 +100,14 @@ if(login_check($mysqli) == true)
                     </div>
                     <div class="form-group">
                         <label >Descripci&oacute;n: </label>
-                        <input type="text" maxlength="600" name="desc" class="form-control" placeholder="600 caracteres máximo" id="desc" style="min-width: 190px" required>
+                        <textarea 
+                                    rows="3" 
+                                    cols="50" 
+                                    name="desc" 
+                                    class="form-control" 
+                                    id="desc" 
+                                    style="width:100%;"
+                                    required></textarea>
                     </div>
                     <div class="form-group">
                         <label >Galer&iacute;a: </label>
@@ -132,7 +139,14 @@ if(login_check($mysqli) == true)
                     </div>
                     <div class="form-group">
                         <label >Descripci&oacute;n: </label>
-                        <input type="text" maxlength="600" name="desc" value="<?php echo $img['descripcion']?>"  class="form-control" placeholder="600 caracteres máximo" id="desc" style="min-width: 190px" required>
+                        <textarea   
+                                    rows="3" 
+                                    cols="50" 
+                                    name="desc" 
+                                    class="form-control" 
+                                    id="desc" 
+                                    style="width:100%;"
+                                    required><?php echo $img['descripcion']?></textarea>
                     </div>
                     <?php 
                      $sel1 = ($img['galeria'] == '1') ? 'selected' : '';
@@ -171,7 +185,14 @@ if(login_check($mysqli) == true)
                     </div>
                     <div class="form-group">
                         <label >Descripci&oacute;n: </label>
-                        <input type="text" maxlength="600" name="desc" value="<?php echo $img['descripcion']?>"  class="form-control" placeholder="600 caracteres máximo" id="desc" style="min-width: 190px" required>
+                        <textarea   
+                                    rows="3" 
+                                    cols="50" 
+                                    name="desc" 
+                                    class="form-control" 
+                                    id="desc" 
+                                    style="width:100%;"
+                                    required><?php echo $img['descripcion']?></textarea>
                     </div>
                     <?php 
                      $sel1 = ($img['galeria'] == '1') ? 'selected' : '';
@@ -211,7 +232,14 @@ if(login_check($mysqli) == true)
                     </div>
                     <div class="form-group">
                         <label >Descripci&oacute;n: </label>
-                        <input type="text" maxlength="600" name="desc" value="<?php echo $img['descripcion']?>"  class="form-control" placeholder="600 caracteres máximo" id="desc" style="min-width: 190px" required>
+                        <textarea   
+                                    rows="3" 
+                                    cols="50" 
+                                    name="desc" 
+                                    class="form-control" 
+                                    id="desc" 
+                                    style="width:100%;"
+                                    required><?php echo $img['descripcion']?></textarea>
                     </div>
                 <?php 
                  $sel1 = ($img['galeria'] == '1') ? 'selected' : '';

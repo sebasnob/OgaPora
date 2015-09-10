@@ -79,6 +79,7 @@ if($_GET['id_proyecto'] == ''){
     header('location: admin.php');
     exit;
 }
+$proyecto = getProyecto($mysqli, $_GET['id_proyecto']);
 $imgGaleria3 = getGaleryProyectos($mysqli, $_GET['id_proyecto']);
 
 ?>
@@ -89,22 +90,29 @@ $imgGaleria3 = getGaleryProyectos($mysqli, $_GET['id_proyecto']);
 if(login_check($mysqli) == true) 
 {?>
         <div class="container" style="background-color: white; margin-top: 10%; padding: 1%">
-            <h1>Proyecto: <?php echo $_GET['titulo']?></h1>
+            <h1>Proyecto: <?php echo $proyecto['titulo']?></h1>
             <h2>Agregar Imagenes</h2>
             <div class="col-md-4">
                 <form class="form-inline" enctype="multipart/form-data" method="POST" action="upload.php">
                     <input type="hidden" value="<?php echo $_GET['id_proyecto']?>" name="id_proyecto" id="id_proyecto" />
                     <div class="form-group">
                         <label>Imagen: </label>
-                        <input type="file" accept="file_extension|image" class="form-control" name="photo" required autofocus>
+                        <input type="file" accept="file_extension|image" class="form-control" name="photo" autofocus>
                     </div>
                     <div class="form-group">
                         <label >T&iacute;tulo: </label>
-                        <input type="text" class="form-control" name="titulo" id="titulo" required>
+                        <input type="text" class="form-control" name="titulo" id="titulo">
                     </div>
                     <div class="form-group">
                         <label >Descripci&oacute;n: </label>
-                        <input type="text" maxlength="600" name="desc" class="form-control" placeholder="600 caracteres máximo" id="desc" style="min-width: 190px" required>
+                        <textarea   
+                                    rows="3" 
+                                    cols="50" 
+                                    name="desc" 
+                                    class="form-control" 
+                                    id="desc" 
+                                    style="width:100%;"
+                                    required><?php echo $img['descripcion']?></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-success">Agregar</button>
@@ -119,22 +127,39 @@ if(login_check($mysqli) == true)
                 <form class="form-inline" enctype="multipart/form-data" method="POST" action="upload.php?id_imagen=<?php echo $img['id']?>">
                     <input type="hidden" value="<?php echo $_GET['id_proyecto']?>" name="id_proyecto" id="id_proyecto" />
                     <div class="form-group">
-                        <label><img class="img-admin" src="../uploads/proyectos/thumb/<?=$img['url_img'];?>" /></label>
+                        <label>
+                            <?php 
+                                $urlImg = "../images/sin_imagen.jpg";
+                                
+                                if($img['url_img'] != null && $img['url_img'] != '')
+                                {
+                                    $urlImg = "../uploads/proyectos/thumb/".$img['url_img']; 
+                                }
+                            ?>
+                            <img class="img-admin" src="<?php echo $urlImg?>" />
+                        </label>
                         <span class="btn btn-primary btn-file">
                             Seleccionar Imagen<input type="file" accept="file_extension|image" name="photo">
                         </span>    
                     </div>
                     <div class="form-group">
                         <label >T&iacute;tulo: </label>
-                        <input type="text" class="form-control" value="<?php echo $img['titulo']?>" name="titulo" id="titulo" required>
+                        <input type="text" class="form-control" value="<?php echo $img['titulo']?>" name="titulo" id="titulo">
                     </div>
                     <div class="form-group">
                         <label >Descripci&oacute;n: </label>
-                        <input type="text" maxlength="600" name="desc" value="<?php echo $img['descripcion']?>"  class="form-control" placeholder="600 caracteres máximo" id="desc" style="min-width: 190px" required>
+                        <textarea   
+                                    rows="3" 
+                                    cols="50" 
+                                    name="desc" 
+                                    class="form-control" 
+                                    id="desc" 
+                                    style="width:100%;"
+                                    required><?php echo $img['descripcion']?></textarea>
                     </div>
 
                     <div>
-                        <button type="submit" class="btn btn-success">Editar</button>
+                        <button type="button" onclick="update(this.form)" class="btn btn-success">Editar</button>
                         <button type="button" onclick="borrar(this.form)" class="btn btn-danger">Borrar</button>
                     </div>    
                 </form>
