@@ -185,9 +185,22 @@ $imgGaleria3 = getGalery($mysqli, '3');
         <div class="titleline-center"></div>
         <!-- end .titleline-center -->
         <p class="lead">
-            Óga porá es una empresa constructora encabeza por Gerardo Rodas que ofrece prestaciones que le permiten brindar soluciones constructivas y de ingenieria desde hace mas de 40 años en Rosario , Buenos Aires y Santa Fe trabajando para varias reparticiones municipales en obras civiles e industriales, de infraestructura urbana , regional, portuarias .También como anexo a nuestra empresa nos hemos desempeñado en la construcción de casas unifamiliares, en emprendimientos particulares y privados.<br/><br/>
-            <span class="highlight-theme">Cultura de trabajo</span> Somos un equipo de trabajo, dedicado a brindar soluciones constructivas. Buscamos satisfacer las necesidades de nuestros clientes, de nuestros empleados y la rentabilidad de nuestros accionistas. La excelente calidad de obra, las finas terminaciones , el estricto cumplimiento de los plazos de entrega , la alta rentabilidad de las unidades y como prioridad uno de respuesta al comprador se ha logrado consolidar una excelente clientela , como las grande firmas que nos contratan y como inversores que nos acompañan en los edificios propios.
-            Los trabajos que hemos realizado, demuestran nuestra capacidad de respuesta, ante los más variados requerimientos de nuestros comitentes, entregando así, obras llave en mano, realizando el proyecto, dirección y ejecución de obra, aceptando la dinámica de cada emprendimiento en particular. La empresa lleva a cabo proyectos propios ,interviniendo en todas la etapas del desarrollo , desde la búsqueda del terreno , proyecto , dirección de obra y  la construcción de unidades habitacionales de vanguardia, aplicando un alto índice de calidad constructiva y de materiales, pasando por el asesoramiento profesional en la personalización de las terminaciones de las unidades vendidas, la garantía otorgada sobre los productos, es el seguimiento post venta.
+            Somos un equipo de trabajo, dedicado a brindar <span class="highlight-theme">soluciones constructivas.</span> 
+            Buscamos satisfacer las necesidades de nuestros clientes, <br>de nuestros empleados y la rentabilidad 
+            de nuestros accionistas. 
+            La excelente calidad de obra, las finas terminaciones, <br>el estricto cumplimiento de los plazos de entrega, 
+            la alta rentabilidad de las unidades y como prioridad uno <br>de respuesta al comprador se ha logrado 
+            consolidar una excelente clientela, como las grande firmas que nos contratan y 
+            como inversores que nos acompañan en los edificios propios.<br><br>
+            Los trabajos que hemos realizado, demuestran nuestra <span class="highlight-theme">capacidad de respuesta</span> 
+            ante los más variados <br>requerimientos de nuestros comitentes, 
+            entregando así, obras llave en mano, realizando el proyecto, dirección y ejecución de obra, <br>
+            aceptando la dinámica de cada emprendimiento en particular. <br>
+            La empresa lleva a cabo proyectos propios, interviniendo en todas la etapas del desarrollo, 
+            desde la búsqueda del terreno, proyecto, dirección de obra y la construcción de unidades habitacionales
+            de vanguardia, aplicando un alto índice de calidad constructiva y de materiales, 
+            pasando por el <span class="highlight-theme">asesoramiento profesional</span> en la personalización de las terminaciones de las unidades 
+            vendidas, la garantía otorgada sobre los productos, es el seguimiento post venta.
         </p>
       </div>
       <!-- end .col-md-12 --> 
