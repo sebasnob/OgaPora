@@ -308,16 +308,16 @@ $imgGaleria3 = getGalery($mysqli, '3');
                 <?php }else{ ?>    
                 <div class="row">
                     <div class="col-md-6">
-                        <h3><?php echo $img3['titulo']?></h3>
+                        <h3><?php echo $img1['titulo']?></h3>
                         <p>
-                            <span class="dropcap-theme"><?php echo substr($img3['descripcion'],0,1);?></span>
-                            <?php echo $img3['descripcion']?>
+                            <span class="dropcap-theme"><?php echo substr($img1['descripcion'],0,1);?></span>
+                            <?php echo $img1['descripcion']?>
                             <br>
-                            <a href="proyectos.php?id_proyecto=<?php echo $img3['id']?>&nombre_proyecto=<?php echo $img3['titulo']?>" class="btn-outline linke">m&aacute;s info</a>
+                            <a href="proyectos.php?id_proyecto=<?php echo $img1['id']?>&nombre_proyecto=<?php echo $img1['titulo']?>" class="btn-outline linke">m&aacute;s info</a>
                         </p>
                     </div>
                     <div class="col-md-6"> 
-                        <img src="<?php echo $img3['url_img']?>" class="img-responsive frame" alt="" /> 
+                        <img src="<?php echo $img1['url_img']?>" class="img-responsive frame" alt="" /> 
                     </div>
                 </div>
                 <?php } ?> 
