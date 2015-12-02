@@ -249,7 +249,12 @@ $imgGaleria3 = getGalery($mysqli, '3');
                     </div>
                 </div>
                 <?php } ?> 
-            <?php $i++;} ?>    
+            <?php 
+                
+                echo "<hr>";
+                $i++;
+                
+                } ?>    
         <!-- end .container -->
         <div class="mb-100"></div>
     <!-- end .mb-100 -->
@@ -316,7 +321,12 @@ $imgGaleria3 = getGalery($mysqli, '3');
                     </div>
                 </div>
                 <?php } ?> 
-            <?php $i++;} ?>  
+            <?php 
+            
+                echo "<hr>";
+                $i++;
+                
+                } ?>  
         </div>
     </div>
   </div>
@@ -366,7 +376,12 @@ $imgGaleria3 = getGalery($mysqli, '3');
                     </div>
                 </div>
                 <?php } ?> 
-            <?php $i++;} ?>    
+            <?php 
+            
+                echo "<hr>";
+                $i++;
+                
+                } ?>    
         <!-- end .container -->
         <div class="mb-100"></div>
     </div>
